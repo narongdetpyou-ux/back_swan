@@ -1,0 +1,9 @@
+{
+  "name": "black_swan_v7_run_results.csv",
+  "storage": "Existing private ChatGPT file; original bytes kept outside Git to avoid duplication",
+  "library_file_id": "libfile_1df295aab314819187a0064af47a46e2",
+  "size_bytes": 7667936,
+  "sha256": "a54eae4437cc8def4e3a966146131c180e78772a30e2e40855af128368753e1d",
+  "regenerate": "python benchmarks/black_swan_v7_benchmark.py --output-dir experiments/local/v7 --seed 20260904 --calibration-runs 900 --repeats 200",
+  "synthetic": true
+}

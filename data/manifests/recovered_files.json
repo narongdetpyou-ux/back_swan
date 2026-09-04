@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "recovery_date": "2026-09-04",
+  "files": [
+    {
+      "original": "black_swan_v7_engine.py",
+      "path": "src/black_swan_v7_engine.py",
+      "size_bytes": 31075,
+      "sha256": "9f0d58ebad4f09f7be1be23e7b76520f904472f8e877391d8895c872cedbe663"
+    },
+    {
+      "original": "black_swan_v7_benchmark.py",
+      "path": "benchmarks/black_swan_v7_benchmark.py",
+      "size_bytes": 19353,
+      "sha256": "0981be09b87cf875eae26110c068530d116063d06533b36137f1762aef0d2977"
+    },
+    {
+      "original": "v7_latency_edge_report_th.md",
+      "path": "reports/v7/v7_latency_edge_report_th.md",
+      "size_bytes": 28257,
+      "sha256": "dc93c407c9126bae6499282786bd0b22dba347c1a3a080be3e85e628aa03b35c"
+    },
+    {
+      "original": "black_swan_v7_latency_edge_audit.py",
+      "path": "benchmarks/support/v7_latency_audit/black_swan_v7_latency_edge_audit.py",
+      "size_bytes": 24021,
+      "sha256": "fbc84c2916b3b74b5ea097ddd08661752dc93e402b30c27c0d52eb9ce2130260"
+    },
+    {
+      "original": "v7_latency_edge_results.json",
+      "path": "experiments/20260903_v7_latency/v7_latency_edge_results.json",
+      "size_bytes": 324714,
+      "sha256": "65e40141a3fa71b476cb8d4a6aff10248b3e4847eb791161ccb274587a4cd1ee"
+    },
+    {
+      "original": "black_swan_v7_benchmark.py",
+      "path": "benchmarks/support/v7_latency_audit/sources/black_swan_v7_benchmark.py",
+      "size_bytes": 19353,
+      "sha256": "0981be09b87cf875eae26110c068530d116063d06533b36137f1762aef0d2977"
+    },
+    {
+      "original": "test_black_swan_v7.py",
+      "path": "benchmarks/support/v7_latency_audit/sources/test_black_swan_v7.py",
+      "size_bytes": 3753,
+      "sha256": "06c7de54c12e22b1d2886a8469c1f666aa03e6edb6f64c077e3dc3687f420bc8"
+    },
+    {
+      "original": "black_swan_v7_engine.py",
+      "path": "benchmarks/support/v7_latency_audit/sources/black_swan_v7_engine.py",
+      "size_bytes": 31075,
+      "sha256": "9f0d58ebad4f09f7be1be23e7b76520f904472f8e877391d8895c872cedbe663"
+    },
+    {
+      "original": "black_swan_v7_manifest.json",
+      "path": "benchmarks/support/v7_latency_audit/sources/black_swan_v7_manifest.json",
+      "size_bytes": 1919,
+      "sha256": "91c5a1cc435cbb69228265b5a99d59601f538098f7b70cbe280f6d912c2399c3"
+    },
+    {
+      "original": "v8_evaluation_results.json",
+      "path": "experiments/20260904T033307Z_v8_original/results.json",
+      "size_bytes": 16027395,
+      "sha256": "06e3160acac1cd50ea326adb52b596c5e624e8b808697e5cbf21b231f33414f9"
+    },
+    {
+      "original": "v8_validation_report_th.md",
+      "path": "reports/v8/v8_validation_report_th.md",
+      "size_bytes": 24341,
+      "sha256": "92db125247b4e36ed96e949c083a89dfbaafdabace43db6fc6812bbb83348796"
+    },
+    {
+      "original": "README.md",
+      "path": "docs/history/v8_bundle_README.md",
+      "size_bytes": 11807,
+      "sha256": "b2c0787ee9eed1022c99da93c71dbce89b9a0a0889bc947166cad2ae869c5f65"
+    },
+    {
+      "original": "PROJECT_STATUS.md",
+      "path": "docs/history/v8_bundle_PROJECT_STATUS.md",
+      "size_bytes": 3955,
+      "sha256": "600eb16cead0647a8a78444db87d6201968045af11bf2493ca52b645e868e4d0"
+    },
+    {
+      "original": "black_swan_v8_verified_bundle.zip",
+      "path": "archive/releases/black_swan_v8_verified_bundle.zip",
+      "size_bytes": 3637997,
+      "sha256": "792cd8e0689037d224af14bb55e02a599f90bb83e05cc0d89c971c598aa90731"
+    },
+    {
+      "original": "black_swan_v7_manifest.json",
+      "path": "configs/v7_calibration_manifest.json",
+      "size_bytes": 1919,
+      "sha256": "91c5a1cc435cbb69228265b5a99d59601f538098f7b70cbe280f6d912c2399c3"
+    },
+    {
+      "original": "black_swan_v7_validation_report_th.md",
+      "path": "reports/v7/black_swan_v7_validation_report_th.md",
+      "size_bytes": 7963,
+      "sha256": "103a78ad01a6df63981c2e77330f28b5bbf7e0610c5eb439b9a229e296bf9dd7"
+    },
+    {
+      "original": "black_swan_v7_cybersecurity_benchmark.xlsx",
+      "path": "reports/v7/black_swan_v7_cybersecurity_benchmark.xlsx",
+      "size_bytes": 923515,
+      "sha256": "e6e53c364d43f5d0325984e18895643d889a5d4d5c93d334f00048ba56f11c66"
+    },
+    {
+      "original": "black_swan_v7_engine_comparison.csv",
+      "path": "experiments/20260904_v7_original/black_swan_v7_engine_comparison.csv",
+      "size_bytes": 425,
+      "sha256": "794c25fcd5d51298af095d4d74af50f9c52fbfdac1e9a30865a67b576a4e5a02"
+    },
+    {
+      "original": "black_swan_v7_family_summary.csv",
+      "path": "experiments/20260904_v7_original/black_swan_v7_family_summary.csv",
+      "size_bytes": 7961,
+      "sha256": "a7788e2d92ef2f4c7e32744c4add54aa69afcb0feb6c4a1bcfe862efe577b342"
+    },
+    {
+      "original": "black_swan_v7_manifest.json",
+      "path": "experiments/20260904_v7_original/black_swan_v7_manifest.json",
+      "size_bytes": 1919,
+      "sha256": "91c5a1cc435cbb69228265b5a99d59601f538098f7b70cbe280f6d912c2399c3"
+    },
+    {
+      "original": "black_swan_v6_validation_report_th.md",
+      "path": "reports/v6/black_swan_v6_validation_report_th.md",
+      "size_bytes": 3360,
+      "sha256": "acf551f543655b711e1808b361f7e25fcdb43f1f49768a3a0f251bb8c20017db"
+    },
+    {
+      "original": "black_swan_v6_cybersecurity_benchmark.xlsx",
+      "path": "reports/v6/black_swan_v6_cybersecurity_benchmark.xlsx",
+      "size_bytes": 426062,
+      "sha256": "5c0527e7c4f2e60d59d23721b9402b79cf1c500ee518364f90cd0f95d211783a"
+    },
+    {
+      "original": "black_swan_logic_stress_test.py",
+      "path": "archive/logic_v2_v3/black_swan_logic_stress_test.py",
+      "size_bytes": 9059,
+      "sha256": "c0a4b57d834f969562d5ae77ad3e7250f6495036f6cf4de28961166ffda5c043"
+    },
+    {
+      "original": "black_swan_logic_stress_test_results.csv",
+      "path": "archive/logic_v2_v3/black_swan_logic_stress_test_results.csv",
+      "size_bytes": 19177,
+      "sha256": "3cb10097538cc553eec6ed18553c4eb587bad1e842ec4fd6aa9314ea2107d4a1"
+    },
+    {
+      "original": "black_swan_v5_engine.py",
+      "path": "archive/v5/black_swan_v5_engine.py",
+      "size_bytes": 9668,
+      "sha256": "e795bc128db29bd1690bbd6cbd7fe3733ce3ae6c435dff2a6211c7bc0d0b8bbd"
+    },
+    {
+      "original": "black_swan_v5_summary.json",
+      "path": "archive/v5/black_swan_v5_summary.json",
+      "size_bytes": 1513,
+      "sha256": "b97b794b3ec804ae481214c9d01819c1079dce34980c1d61f1dbc8d8a8d39db3"
+    },
+    {
+      "original": "black_swan_v5_real_90739_results.csv",
+      "path": "archive/v5/black_swan_v5_real_90739_results.csv",
+      "size_bytes": 507,
+      "sha256": "d349f69e9a0f82c9ccbaf3efe0adf86e9b3b45ac17c8f2e0da813fca2b1216f1"
+    },
+    {
+      "original": "black_swan_v5_counterfactual_stress.csv",
+      "path": "archive/v5/black_swan_v5_counterfactual_stress.csv",
+      "size_bytes": 1357,
+      "sha256": "1ced18456da66c1bb63a8964d77b2b0f9860e81550d4822ba34de7da4b2c4313"
+    },
+    {
+      "original": "black_swan_v5_monte_carlo_summary.csv",
+      "path": "archive/v5/black_swan_v5_monte_carlo_summary.csv",
+      "size_bytes": 272,
+      "sha256": "c2848e97789ba47fee595efad555f1119aeee2bc8ec8d8f4dada9d86f9ce6f87"
+    },
+    {
+      "original": "black_swan_logic_v6_medicare_validation_bundle.zip",
+      "path": "archive/releases/black_swan_logic_v6_medicare_validation_bundle.zip",
+      "size_bytes": 31163,
+      "sha256": "996671386efc19b981cbb5803228c9e5be881f10eaf0e0dc60fdc123684c7f91"
+    },
+    {
+      "original": "black_swan_logic_v6_medicare_validation_bundle.zip:medicare_multicase_2013_2024.csv",
+      "path": "data/raw/medicare/medicare_multicase_2013_2024.csv",
+      "size_bytes": 170173,
+      "sha256": "1e7121599f7033c5fb934aae51865622cd2ede7345a296ee1f48191373f8e91d"
+    },
+    {
+      "original": "black_swan_v6_cybersecurity_benchmark_bundle.zip",
+      "path": "archive/releases/black_swan_v6_cybersecurity_benchmark_bundle.zip",
+      "size_bytes": 105558,
+      "sha256": "88c5e3f76c6d189387a8802049103df8a49438140c7d8f2a63e4a6bdd460b7eb"
+    },
+    {
+      "original": "black_swan_v6_cybersecurity_benchmark_bundle.zip:cybersecurity_synthetic_timeseries.csv",
+      "path": "data/raw/cybersecurity/cybersecurity_synthetic_timeseries.csv",
+      "size_bytes": 807801,
+      "sha256": "2c229acc3f98626d9d6cca8b45dabaf532230bb3567e5044f6e6ef8c555dc422"
+    },
+    {
+      "original": "black_swan_v6_cybersecurity_benchmark_bundle.zip:cybersecurity_scenario_manifest.csv",
+      "path": "data/raw/cybersecurity/cybersecurity_scenario_manifest.csv",
+      "size_bytes": 3858,
+      "sha256": "e234b1eb299fb26fb035f48942abf4a8068963da270cfb3a8c988428d2b7a5fa"
+    }
+  ],
+  "engine_runtime_definitions_unchanged": true,
+  "v8_test_class_definitions_unchanged": true
+}

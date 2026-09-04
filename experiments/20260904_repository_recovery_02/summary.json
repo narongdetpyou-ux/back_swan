@@ -1,0 +1,49 @@
+{
+  "utc": "2026-09-04T14:19:37.171803+00:00",
+  "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "source_sha256": {
+    "src/black_swan/__init__.py": "bd9e09be294f61c5b207b241325d406843606befe13798e49ae8017bfcfb6a2f",
+    "src/black_swan/engine.py": "370b08194d7ef1ffbe716b45ae407ebf0d7876c732b35d4a12178732bad3a9f8",
+    "src/black_swan/runtime.py": "d75c2200a741b04298b0487853fced7192953680e9242bca793500d3a9cefa56",
+    "src/black_swan_v7_engine.py": "9f0d58ebad4f09f7be1be23e7b76520f904472f8e877391d8895c872cedbe663",
+    "tests/fixtures/__init__.py": "637e774f876987234569fd8c9984b9ab66ed7b465992abae8177ffe116387745",
+    "tests/fixtures/v8_synthetic.py": "6f5624072ef000d0a5015d7542bd5ba77eea6b2f70dc1a15cca5d8bb3ff44e9b",
+    "tests/test_black_swan_v7.py": "f5400113328c8a0277dafef89147686449b06ab322a07f0ec317d3a63f537ecc",
+    "tests/test_black_swan_v8.py": "616841776a15928b754a7913188f030c16bbec227577f83c12121d7772b11312",
+    "benchmarks/black_swan_v7_benchmark.py": "0981be09b87cf875eae26110c068530d116063d06533b36137f1762aef0d2977",
+    "benchmarks/evaluate_black_swan_v8.py": "acde854b60504b61326aa2e15f47830e5c1bb6470f4e41f3b9d86b87f43c3792",
+    "benchmarks/support/v7_latency_audit/black_swan_v7_latency_edge_audit.py": "fbc84c2916b3b74b5ea097ddd08661752dc93e402b30c27c0d52eb9ce2130260",
+    "benchmarks/support/v7_latency_audit/sources/black_swan_v7_benchmark.py": "0981be09b87cf875eae26110c068530d116063d06533b36137f1762aef0d2977",
+    "benchmarks/support/v7_latency_audit/sources/black_swan_v7_engine.py": "9f0d58ebad4f09f7be1be23e7b76520f904472f8e877391d8895c872cedbe663",
+    "benchmarks/support/v7_latency_audit/sources/test_black_swan_v7.py": "06c7de54c12e22b1d2886a8469c1f666aa03e6edb6f64c077e3dc3687f420bc8"
+  },
+  "checks": [
+    {
+      "name": "inventory",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/check_repository.py"
+      ],
+      "exit_code": 0,
+      "log": "inventory.log"
+    },
+    {
+      "name": "regression",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "regression.log"
+    }
+  ],
+  "passed": true
+}
