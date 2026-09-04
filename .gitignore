@@ -1,9 +1,24 @@
 __pycache__/
 *.py[cod]
-outputs/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
 
-# Local credentials must never be committed.
+# Generated runs stay local until an explicit, reviewed promotion.
+experiments/local/
+outputs/
+artifacts/local/
+backups/
+data/private/
+
+# Credentials never belong in source control, including private repositories.
 openai-api-key.txt
+*credentials*.json
+*.pem
+*.key
 *.env
 .env*
 !.env.example

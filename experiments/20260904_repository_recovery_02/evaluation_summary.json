@@ -1,0 +1,4618 @@
+{
+  "version": "v8-evaluation-organized-1",
+  "environment": {
+    "utc": "2026-09-04T14:20:02.743944+00:00",
+    "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "visible_logical_cpus": 9,
+    "cpu_quota": "800000 100000",
+    "memory_limit_bytes": "15032385536",
+    "gc_enabled": true,
+    "timing_clock": "time.perf_counter_ns (wall); time.process_time_ns (CPU)"
+  },
+  "code_sha256": {
+    "src/black_swan/engine.py": "370b08194d7ef1ffbe716b45ae407ebf0d7876c732b35d4a12178732bad3a9f8",
+    "src/black_swan/runtime.py": "d75c2200a741b04298b0487853fced7192953680e9242bca793500d3a9cefa56",
+    "tests/test_black_swan_v8.py": "616841776a15928b754a7913188f030c16bbec227577f83c12121d7772b11312",
+    "tests/fixtures/v8_synthetic.py": "6f5624072ef000d0a5015d7542bd5ba77eea6b2f70dc1a15cca5d8bb3ff44e9b",
+    "benchmarks/evaluate_black_swan_v8.py": "acde854b60504b61326aa2e15f47830e5c1bb6470f4e41f3b9d86b87f43c3792",
+    "src/black_swan_v7_engine.py": "9f0d58ebad4f09f7be1be23e7b76520f904472f8e877391d8895c872cedbe663",
+    "benchmarks/support/v7_latency_audit/black_swan_v7_latency_edge_audit.py": "fbc84c2916b3b74b5ea097ddd08661752dc93e402b30c27c0d52eb9ce2130260",
+    "benchmarks/support/v7_latency_audit/sources/black_swan_v7_manifest.json": "91c5a1cc435cbb69228265b5a99d59601f538098f7b70cbe280f6d912c2399c3"
+  },
+  "calibration": {
+    "composite_threshold": 1.3503934865225848,
+    "quantile": 0.99,
+    "calibration_size": 900,
+    "target_false_alert_rate": 0.01,
+    "base_point": 8.079897537721207,
+    "base_temporal": 11.554667181830299,
+    "base_collective": 5.6401785375655615,
+    "review_fraction": 0.8,
+    "context_min_confidence": 0.95,
+    "min_history": 72,
+    "max_fused_metrics": 4
+  },
+  "data_provenance": "Original v7 hourly synthetic cybersecurity metric generator; no production or public real-data replay.",
+  "code_unchanged_during_evaluation": true,
+  "quality": {
+    "n": 1900,
+    "complete_numeric_n": 1500,
+    "identical_scores": 1500,
+    "identical_routes": 1500,
+    "summary": {
+      "v7": {
+        "benign_false_alerts": 1,
+        "benign_n": 600,
+        "strong_alerts": 600,
+        "strong_n": 600,
+        "evasive_observable_alerts": 286,
+        "evasive_n": 300,
+        "attack_operational_capture": 998,
+        "attack_n": 1000,
+        "all_routes": {
+          "NO_SECURITY_ALERT": 218,
+          "MODEL_REVIEW": 48,
+          "MODEL_REVIEW_CONTEXT_UNCERTAIN": 47,
+          "SECURITY_ANOMALY_REVIEW": 887,
+          "BENIGN_EXPLAINED_BREAK": 300,
+          "TELEMETRY_HOLD": 100,
+          "TELEMETRY_HOLD_SECURITY_RISK": 100,
+          "SERIES_LIFECYCLE_CHANGE": 200
+        },
+        "automatic_no_review": 718
+      },
+      "v8": {
+        "benign_false_alerts": 1,
+        "benign_n": 600,
+        "strong_alerts": 600,
+        "strong_n": 600,
+        "evasive_observable_alerts": 286,
+        "evasive_n": 300,
+        "attack_operational_capture": 998,
+        "attack_n": 1000,
+        "all_routes": {
+          "NO_SECURITY_ALERT": 218,
+          "MODEL_REVIEW": 48,
+          "MODEL_REVIEW_CONTEXT_UNCERTAIN": 47,
+          "SECURITY_ANOMALY_REVIEW": 887,
+          "BENIGN_EXPLAINED_BREAK": 300,
+          "TELEMETRY_HOLD": 100,
+          "TELEMETRY_HOLD_SECURITY_RISK": 100,
+          "SERIES_LIFECYCLE_CHANGE": 200
+        },
+        "automatic_no_review": 518
+      }
+    },
+    "empty_trust_registry_benign_alerts": 348,
+    "note": "Fresh seeds, same original synthetic generator. Registry entries are operator-installed synthetic benign fixtures, not authenticated production records."
+  },
+  "resilience": {
+    "novel_patterns": {
+      "coordinated_negative_shift": {
+        "description": "All recent outbound and successful logins multiplied by .2.",
+        "n": 100,
+        "alerts": 100,
+        "review_including_alerts": 100,
+        "routes": {
+          "SECURITY_ANOMALY_REVIEW": 100
+        },
+        "rows": [
+          {
+            "seed": 1451000,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.833515223491949,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451001,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.01754201226276,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451002,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.226388934324593,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451003,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.8940857927423,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451004,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.81179556290833,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451005,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.986414060357717,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451006,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 12.659013496696039,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451007,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.337815839426247,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451008,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.8163774946238,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451009,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.77496274959717,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451010,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.93328058498488,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451011,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.104791452525603,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451012,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.780996550195756,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451013,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.785169432302217,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451014,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.834303431640402,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451015,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.157164379753002,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451016,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.868223647239997,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451017,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.393282802383315,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451018,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.051532656725934,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451019,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.082349345599624,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451020,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.639085235352727,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451021,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.514992342898694,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451022,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.01109183213004,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451023,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.731264386181767,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451024,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.68014412769773,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451025,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.077642286869235,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451026,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.608974290251094,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451027,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.157058673290585,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451028,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.154729963972358,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451029,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.381597383156983,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451030,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.155188355456694,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451031,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.781200696723737,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451032,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.15172303754126,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451033,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.568459857820201,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451034,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.404880643118197,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451035,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.962197159220297,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451036,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 20.3369970786354,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451037,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.53869287722787,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451038,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.5983390489967,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451039,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 19.916257340534994,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451040,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.71187566466488,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451041,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.13421647561231,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451042,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.060258212796388,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451043,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.8130231906397,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451044,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.96619945825186,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451045,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.775201715472278,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451046,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.528507816808013,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451047,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.388471476213532,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451048,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 19.387587091235385,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451049,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.405900386452313,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451050,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.140347796033861,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451051,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.378540752274475,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451052,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 21.328905244838197,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451053,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.29237703485315,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451054,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.319512442260184,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451055,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.40804634698647,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451056,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.06195692121947,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451057,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.859678735856612,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451058,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.58545261000515,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451059,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.726766707976871,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451060,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.897107182025515,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451061,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.91049708135293,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451062,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.081495093692162,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451063,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.357785594819145,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451064,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.95102525049917,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451065,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.289662589776087,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451066,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.77903274224059,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451067,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.272801977923113,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451068,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.0710872619699,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451069,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.234805184900583,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451070,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.12091337122187,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451071,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.632303666096611,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451072,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.303148272571264,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451073,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 19.22141105784306,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451074,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.500757671585996,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451075,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.218327450521686,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451076,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.690941250086446,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451077,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.198422141815744,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451078,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.757704467450617,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451079,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.320631582187577,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451080,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.813992808177076,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451081,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.704901988607459,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451082,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.250341162890345,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451083,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.037325145027912,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451084,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.268084563141095,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451085,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.727515147515595,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451086,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.950285150128307,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451087,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.452309420896972,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451088,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 16.786236457254724,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451089,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 17.061350054445438,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451090,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.288487063860668,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451091,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.666463348570012,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451092,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 14.462818135808783,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451093,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.834454342401195,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451094,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.464470645968458,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451095,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.021395350101885,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451096,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 18.629726574168007,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451097,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 15.412005840881134,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451098,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 13.815503108800147,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451099,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 19.68718913684053,
+            "reason": "UNEXPLAINED_ANOMALY"
+          }
+        ]
+      },
+      "intermittent_outbound_pulses": {
+        "description": "Outbound multiplied by 1.8 at indices 0,3,6,9; others unchanged.",
+        "n": 100,
+        "alerts": 100,
+        "review_including_alerts": 100,
+        "routes": {
+          "SECURITY_ANOMALY_REVIEW": 100
+        },
+        "rows": [
+          {
+            "seed": 1451000,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.8132409190333494,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451001,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.098923290229314,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451002,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.6467384919697157,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451003,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.350702200525104,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451004,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.3631101034343915,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451005,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.6332362138811827,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451006,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.8773850041543594,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451007,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.2369360442461454,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451008,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.191337963096664,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451009,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.430533502908001,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451010,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.318860344774329,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451011,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.091348123556227,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451012,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.9486469244051423,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451013,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 2.856887059823324,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451014,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.031832761929403,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451015,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.767682615796046,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451016,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.4215872418997586,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451017,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.512394963005836,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451018,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.602424255453697,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451019,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.4164495138354183,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451020,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.614659653717232,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451021,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.094422384636444,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451022,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.288817094310678,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451023,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.295955349275256,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451024,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.395865286814077,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451025,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.2719576789152325,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451026,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.6276263530768396,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451027,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 6.323361624801858,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451028,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.065335075728991,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451029,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.2659685094953925,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451030,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.2786616730458,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451031,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.8081343042192746,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451032,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.164133655583,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451033,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.720939112653904,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451034,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.307271270399173,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451035,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.3517755312853224,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451036,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.44325416130895,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451037,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.9045613918369653,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451038,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.7315149130914755,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451039,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.3028232761870875,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451040,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.3399736096447645,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451041,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.780216902301375,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451042,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.851287737531975,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451043,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.577043365776368,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451044,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.1058745498808396,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451045,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.792381790311521,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451046,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 2.824318390779875,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451047,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.792616034493563,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451048,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.790609281936458,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451049,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.168153357136231,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451050,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.236275888153014,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451051,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.305848807043168,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451052,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.536619849074265,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451053,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 6.296708052737906,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451054,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.573053352126661,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451055,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.748972366216043,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451056,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.779643805624723,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451057,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.4352105980281697,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451058,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.559746318186834,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451059,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.553126037813023,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451060,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.7663968076502705,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451061,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 6.392552711715721,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451062,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.12531744264883,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451063,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.932773563349757,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451064,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.3019678278982103,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451065,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.974377208296212,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451066,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.57328982632159,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451067,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.952278183860079,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451068,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.5275609031966915,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451069,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.3912001815461315,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451070,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.391278924774138,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451071,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.5381212115353127,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451072,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.4834327447676476,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451073,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.123058222809422,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451074,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.105584978451957,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451075,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.577947575760584,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451076,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.557788047112361,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451077,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.092858812401446,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451078,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.520099677450144,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451079,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.2639736546291735,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451080,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 6.200184311950233,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451081,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.60755603151333,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451082,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.4964599312963394,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451083,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.258774001028611,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451084,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.03184021284645,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451085,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.588459276302548,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451086,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.895477448400742,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451087,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.783584039344507,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451088,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.881005757738492,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451089,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.0851586070288985,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451090,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 5.519575560123348,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451091,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.21340032896657,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451092,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.391712112581076,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451093,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 2.4904742779478983,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451094,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.7014240915411776,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451095,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.909318027553165,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451096,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.02532649434658,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451097,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.865581724653534,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451098,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 3.867322237857933,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451099,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 4.461562491616075,
+            "reason": "UNEXPLAINED_ANOMALY"
+          }
+        ]
+      },
+      "rotating_weak_signals": {
+        "description": "One of four metrics multiplied by 1.25 each step, rotating; others unchanged.",
+        "n": 100,
+        "alerts": 45,
+        "review_including_alerts": 70,
+        "routes": {
+          "MODEL_REVIEW": 25,
+          "NO_SECURITY_ALERT": 30,
+          "SECURITY_ANOMALY_REVIEW": 45
+        },
+        "rows": [
+          {
+            "seed": 1451000,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.0904821471799242,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451001,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9352862159954103,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451002,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9446668535744781,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451003,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.6867233241033615,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451004,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3842203037868175,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451005,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9380611247698647,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451006,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9595711596218366,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451007,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.340629970749434,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451008,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1005069962782634,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451009,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8438557583977426,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451010,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.946517901757166,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451011,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8868809078942397,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451012,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.176090295228919,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451013,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.9159478221881459,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451014,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8469602941525824,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451015,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0587801519643387,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451016,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9899780791951642,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451017,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0159185006994746,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451018,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.894773247472405,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451019,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8930853037719974,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451020,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.191261083538706,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451021,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.245177444406579,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451022,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5143865153964493,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451023,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5675955322859512,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451024,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3861131609580444,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451025,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9506461733851685,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451026,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8928705727270317,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451027,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.9601080111007834,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451028,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.406710310388704,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451029,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1426236613394103,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451030,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7409196430653289,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451031,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.713181913727978,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451032,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.784550900725233,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451033,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3607308350144214,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451034,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5079378351765378,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451035,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.062959979859593,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451036,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.842218171436469,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451037,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.2852516838152261,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451038,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0105548268504279,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451039,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 2.1569276251939455,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451040,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.3402341401869045,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451041,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8841144396923423,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451042,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.6689716588811412,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451043,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4048330253755748,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451044,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7018608028065972,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451045,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5175419709478113,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451046,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.2099787964602908,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451047,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6619449599271562,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451048,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.300943676583372,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451049,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4202785237036353,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451050,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.143389707061799,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451051,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1464030922415058,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451052,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9722397941848216,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451053,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8350651028509835,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451054,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4001228405694792,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451055,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.971087023257285,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451056,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.260810211327902,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451057,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8812500484547592,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451058,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.7232840810144856,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451059,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1669233203784832,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451060,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.9783429370745464,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451061,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8435579527774102,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451062,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3702644384334692,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451063,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.7909774241139715,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451064,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1746175635381824,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451065,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.872054259189015,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451066,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3831048687955692,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451067,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4168759519781131,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451068,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.6756323028554279,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451069,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.2849841784058347,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451070,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8151766709851735,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451071,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.392548470877283,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451072,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0306564063065726,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451073,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4819520536060808,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451074,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.3977377460757823,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451075,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.6057473365308779,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451076,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.230544738705231,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451077,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8395200557243083,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451078,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5816910953881251,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451079,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7704240139693147,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451080,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.8575269439069144,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451081,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.2653650422083107,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451082,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8083592248179786,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451083,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.6003261526616952,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451084,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0118602513611092,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451085,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8949400041808223,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451086,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.830277993829936,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451087,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.319275098683613,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451088,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.5918578869306772,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451089,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.3429411871406023,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451090,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.4202643604417804,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451091,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.1927988231978301,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451092,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9224470463734633,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451093,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.814545627145726,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451094,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.2204337407914778,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451095,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.274995307888067,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451096,
+            "route": "MODEL_REVIEW",
+            "security_alert": false,
+            "review": true,
+            "score": 1.0932007357175721,
+            "reason": "SCORE_IN_REVIEW_BAND"
+          },
+          {
+            "seed": 1451097,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.563540245790969,
+            "reason": "UNEXPLAINED_ANOMALY"
+          },
+          {
+            "seed": 1451098,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8557922123713494,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451099,
+            "route": "SECURITY_ANOMALY_REVIEW",
+            "security_alert": true,
+            "review": true,
+            "score": 1.377758237207513,
+            "reason": "UNEXPLAINED_ANOMALY"
+          }
+        ]
+      },
+      "very_low_amplitude_persistent": {
+        "description": "All recent outbound multiplied by 1.02.",
+        "n": 100,
+        "alerts": 0,
+        "review_including_alerts": 0,
+        "routes": {
+          "NO_SECURITY_ALERT": 100
+        },
+        "rows": [
+          {
+            "seed": 1451000,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5172047171824965,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451001,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5503009523768494,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451002,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.3943033562699844,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451003,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.841593497497456,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451004,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.524985492865739,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451005,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8192657358394477,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451006,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6851893644740457,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451007,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5104491643485368,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451008,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5805142146101745,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451009,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7045493861891727,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451010,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8410595591205888,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451011,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7498533547234585,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451012,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.772368888076175,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451013,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8982481672701503,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451014,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.707362363635586,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451015,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7758509858774195,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451016,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4249770647613943,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451017,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.609678736859719,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451018,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7760324851693883,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451019,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5515418222885866,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451020,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6540443049163158,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451021,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.636856133001544,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451022,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9682475532511273,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451023,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.531168582181467,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451024,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5051616857832176,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451025,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.572418087229633,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451026,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4985321862937927,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451027,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9545479039336093,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451028,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7384816161873152,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451029,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.43416327992074144,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451030,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5565175848065878,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451031,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8074560105596402,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451032,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.46661161252263134,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451033,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.761431320346303,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451034,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6946466321072942,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451035,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6175473179467834,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451036,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6292300611364351,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451037,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7035816052068048,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451038,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451039,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.821297146875388,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451040,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7424522958054004,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451041,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451042,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8645697043737336,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451043,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5342568814143243,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451044,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.690843199084611,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451045,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8796710272184958,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451046,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6790582949313991,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451047,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.37564936974444674,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451048,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.47114553913317025,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451049,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6117141612861761,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451050,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5801279874284703,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451051,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5598201025982921,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451052,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.536641956777781,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451053,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8463729208848295,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451054,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7610680773780462,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451055,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6578636445157733,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451056,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6013537256454558,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451057,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6520381874937957,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451058,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6771202822277087,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451059,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5097370436474803,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451060,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8335483521711587,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451061,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9272440964624008,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451062,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5394222195592038,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451063,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9561884047544034,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451064,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6562008829146591,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451065,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6254140283432233,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451066,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5321692232386381,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451067,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6762809791775823,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451068,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6907417876937936,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451069,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5440745856505116,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451070,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7098129345023573,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451071,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.626343910080066,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451072,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6505206668902169,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451073,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.828544937262414,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451074,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6469330414084165,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451075,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8301431636287165,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451076,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7160407859391407,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451077,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8112246524123764,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451078,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6609566613829851,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451079,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.45677436611854855,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451080,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7533099738606295,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451081,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5789662891596136,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451082,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4811244926493326,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451083,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5921425062410995,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451084,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.512791203143213,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451085,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6093911758912508,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451086,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9182540149308698,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451087,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5850031646664674,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451088,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7912388357261344,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451089,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6139414491206009,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451090,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8810561847000502,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451091,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5232289892784721,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451092,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6035313103193846,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451093,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.455921869520151,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451094,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6705868986718554,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451095,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5059647296394024,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451096,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6688512460657778,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451097,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 1.0181727010994537,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451098,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6130123673613386,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          },
+          {
+            "seed": 1451099,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6189428527856103,
+            "reason": "NO_OBSERVABLE_ANOMALY"
+          }
+        ]
+      },
+      "no_observable_footprint": {
+        "description": "Exactly identical telemetry to the paired normal control; hypothetical attack outside measured features.",
+        "n": 100,
+        "alerts": 0,
+        "review_including_alerts": 0,
+        "routes": {
+          "NO_SECURITY_ALERT": 100
+        },
+        "rows": [
+          {
+            "seed": 1451000,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5172047171824965,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451001,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5602078736186296,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451002,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4991370577851605,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451003,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7681039473578123,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451004,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.524985492865739,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451005,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8192657358394477,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451006,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6851893644740457,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451007,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4980318176855401,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451008,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5805142146101745,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451009,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7045493861891727,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451010,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8114038551623424,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451011,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7498533547234585,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451012,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7769605628133325,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451013,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8982481672701503,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451014,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6818578626500001,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451015,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7758509858774195,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451016,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4249770647613943,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451017,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6150349593997585,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451018,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7453743774496492,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451019,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5562304085954852,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451020,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6540443049163158,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451021,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.611530371968522,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451022,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9682475532511273,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451023,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5025637662769257,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451024,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4506859130804028,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451025,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.572418087229633,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451026,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4985321862937927,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451027,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7131479893589415,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451028,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7160859136224094,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451029,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.426765601800426,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451030,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5565175848065878,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451031,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.78945997415598,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451032,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.46661161252263134,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451033,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5787207595742927,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451034,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6847116362685679,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451035,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.752825300901991,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451036,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6292300611364351,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451037,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.708498454463369,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451038,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451039,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.821297146875388,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451040,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6962369456283142,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451041,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451042,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8645697043737336,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451043,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5342568814143243,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451044,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.690843199084611,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451045,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8796710272184958,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451046,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6977671840285982,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451047,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.37564936974444674,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451048,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4087047069178909,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451049,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6117141612861761,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451050,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4998720291918852,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451051,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5286917055662583,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451052,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.536641956777781,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451053,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7662789157100007,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451054,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7610680773780462,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451055,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6329388505535156,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451056,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6056501414838362,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451057,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6607709427336573,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451058,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6600391946721783,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451059,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5116144285508208,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451060,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8261748786142065,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451061,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6023448527697735,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451062,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.41814499219220885,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451063,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9408181358293483,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451064,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6849240526333337,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451065,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6254140283432233,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451066,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5204338738103207,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451067,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6584023740622514,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451068,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7208041716483503,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451069,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5440745856505116,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451070,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6555303328756018,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451071,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6271028345052871,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451072,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6505206668902169,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451073,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6483699994822953,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451074,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6516467862518699,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451075,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6082468142650768,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451076,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6996139752853876,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451077,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8258869379478444,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451078,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6501040592639997,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451079,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.45677436611854855,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451080,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7533099738606295,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451081,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5722946833204002,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451082,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4811244926493326,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451083,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5459242037448117,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451084,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.512791203143213,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451085,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6093911758912508,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451086,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9182540149308698,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451087,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451088,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.782846271893383,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451089,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6139414491206009,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451090,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.8810561847000502,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451091,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.500865826325929,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451092,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6028685885483113,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451093,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.455921869520151,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451094,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6531111082834559,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451095,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.4737890386244373,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451096,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.6688512460657778,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451097,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.9914458617615204,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451098,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.7171885519050496,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          },
+          {
+            "seed": 1451099,
+            "route": "NO_SECURITY_ALERT",
+            "security_alert": false,
+            "review": false,
+            "score": 0.5785152514720201,
+            "reason": "NO_OBSERVABLE_ANOMALY",
+            "identical_to_normal": true
+          }
+        ]
+      }
+    },
+    "edge_cases": [
+      {
+        "case": "normal_control",
+        "route": "NO_SECURITY_ALERT",
+        "security_alert": false,
+        "review": false,
+        "score": 0.5712710177928092,
+        "reason": "NO_OBSERVABLE_ANOMALY"
+      },
+      {
+        "case": "empty_input",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "EMPTY_OR_OVERSIZED_INPUT"
+      },
+      {
+        "case": "empty_recent",
+        "route": "TELEMETRY_HOLD",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      },
+      {
+        "case": "all_recent_none_marked_complete",
+        "route": "TELEMETRY_HOLD",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      },
+      {
+        "case": "invalid_numeric_string",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "numeric_dict",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "mismatched_status_length",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "STATUS_LENGTH_OR_TYPE"
+      },
+      {
+        "case": "lifecycle_plus_bad_numeric",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "failed_quality_plus_bad_history",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "unknown_status",
+        "route": "TELEMETRY_HOLD",
+        "security_alert": false,
+        "review": true,
+        "score": 0.5133107167971175,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      },
+      {
+        "case": "all_recent_nan",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "all_recent_inf",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "finite_overflow",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "huge_integer",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "NONFINITE_OR_INVALID_NUMBER"
+      },
+      {
+        "case": "inconsistent_recent_lengths",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "RECENT_WINDOW_MISALIGNMENT"
+      },
+      {
+        "case": "dropped_recent_metric",
+        "route": "TELEMETRY_HOLD",
+        "security_alert": false,
+        "review": true,
+        "score": 0.5133107167971175,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      },
+      {
+        "case": "zero_calibration_normalizers",
+        "route": "CONFIGURATION_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INVALID_CALIBRATION_DIVISOR"
+      },
+      {
+        "case": "nan_calibration_threshold",
+        "route": "CONFIGURATION_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INVALID_CALIBRATION_DIVISOR"
+      },
+      {
+        "case": "string_context_confidence",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INVALID_CONTEXT_FIELDS"
+      },
+      {
+        "case": "dict_context_event",
+        "route": "INVALID_INPUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INVALID_CONTEXT_TYPE"
+      },
+      {
+        "case": "attack_control",
+        "route": "SECURITY_ANOMALY_REVIEW",
+        "security_alert": true,
+        "review": true,
+        "score": 24.671346982802728,
+        "reason": "UNEXPLAINED_ANOMALY"
+      },
+      {
+        "case": "attack_with_forged_context",
+        "route": "SECURITY_ANOMALY_REVIEW",
+        "security_alert": true,
+        "review": true,
+        "score": 24.671346982802728,
+        "reason": "UNEXPLAINED_ANOMALY"
+      },
+      {
+        "case": "attack_with_unrelated_lifecycle",
+        "route": "SECURITY_ANOMALY_REVIEW",
+        "security_alert": true,
+        "review": true,
+        "score": 24.671346982802728,
+        "reason": "SECURITY_EVIDENCE_WITH_DATA_ISSUES"
+      },
+      {
+        "case": "attack_with_unrelated_failed_metric",
+        "route": "SECURITY_ANOMALY_REVIEW",
+        "security_alert": true,
+        "review": true,
+        "score": 24.671346982802728,
+        "reason": "SECURITY_EVIDENCE_WITH_DATA_ISSUES"
+      },
+      {
+        "case": "attack_with_new_short_history",
+        "route": "SECURITY_ANOMALY_REVIEW",
+        "security_alert": true,
+        "review": true,
+        "score": 24.671346982802728,
+        "reason": "SECURITY_EVIDENCE_WITH_DATA_ISSUES"
+      },
+      {
+        "case": "suppressed_status_control",
+        "route": "TELEMETRY_HOLD_SECURITY_RISK",
+        "security_alert": false,
+        "review": true,
+        "score": 0.5712710177928092,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      },
+      {
+        "case": "none_values_without_status",
+        "route": "TELEMETRY_HOLD",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "INCOMPLETE_EVIDENCE_REQUIRES_REVIEW"
+      }
+    ],
+    "faults": [
+      {
+        "fault": "stall",
+        "route": "TIMEOUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "HARD_DEADLINE_EXCEEDED",
+        "elapsed_ms": 250.24989699977596,
+        "recovery_alert": true,
+        "recovery_ms": 102.11978499955876
+      },
+      {
+        "fault": "stall",
+        "route": "TIMEOUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "HARD_DEADLINE_EXCEEDED",
+        "elapsed_ms": 250.15985899972293,
+        "recovery_alert": true,
+        "recovery_ms": 80.46415300032095
+      },
+      {
+        "fault": "stall",
+        "route": "TIMEOUT_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "HARD_DEADLINE_EXCEEDED",
+        "elapsed_ms": 250.88196300021082,
+        "recovery_alert": true,
+        "recovery_ms": 92.11718700044003
+      },
+      {
+        "fault": "crash",
+        "route": "WORKER_ERROR_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "WORKER_PROCESS_EXITED",
+        "elapsed_ms": 1.1511659995449008,
+        "recovery_alert": true,
+        "recovery_ms": 91.984713999409
+      },
+      {
+        "fault": "exception",
+        "route": "WORKER_ERROR_REVIEW",
+        "security_alert": false,
+        "review": true,
+        "score": 0.0,
+        "reason": "WORKER_EXCEPTION_RuntimeError",
+        "elapsed_ms": 0.6387849998645834,
+        "recovery_alert": true,
+        "recovery_ms": 1.324419999946258
+      }
+    ],
+    "fault_runtime_stats": {
+      "offered": 10,
+      "accepted": 10,
+      "rejected": 0,
+      "completed": 10,
+      "timeouts": 3,
+      "cancelled": 0,
+      "worker_restarts": 4,
+      "peak_pending": 1,
+      "peak_queue": 1,
+      "pending": 0,
+      "queued": 0,
+      "alive_workers": 1,
+      "monitor_error": null
+    },
+    "workers_after_close": 0
+  },
+  "microbenchmark": {
+    "v7_full": {
+      "count": 4500,
+      "mean_ms": 1.7630682364444445,
+      "p50_ms": 1.6867969999999999,
+      "p95_ms": 2.08540055,
+      "p99_ms": 2.84879862,
+      "max_ms": 12.037388,
+      "throughput_per_s": 566.8520753265643
+    },
+    "v8_full": {
+      "count": 4500,
+      "mean_ms": 0.6427506313333333,
+      "p50_ms": 0.6014550000000001,
+      "p95_ms": 0.8318705000000001,
+      "p99_ms": 1.1037712200000063,
+      "max_ms": 3.491441,
+      "throughput_per_s": 1553.9187792179807
+    },
+    "v8_registered_window": {
+      "count": 4500,
+      "mean_ms": 0.22063029888888888,
+      "p50_ms": 0.2048915,
+      "p95_ms": 0.29233155000000005,
+      "p99_ms": 0.4578260100000003,
+      "max_ms": 1.826481,
+      "throughput_per_s": 4517.894326758914
+    },
+    "v8_unique_history_cache_miss": {
+      "count": 200,
+      "mean_ms": 1.13118972,
+      "p50_ms": 1.108738,
+      "p95_ms": 1.2552059999999998,
+      "p99_ms": 1.3801676299999996,
+      "max_ms": 1.5449,
+      "elapsed_s": 0.226416549,
+      "cpu_s": 0.226074548,
+      "throughput_decisions_per_s": 883.3276581739615,
+      "route_counts": {
+        "NO_SECURITY_ALERT": 191,
+        "MODEL_REVIEW": 9
+      }
+    },
+    "v8_cache_disabled": {
+      "count": 500,
+      "mean_ms": 1.087570488,
+      "p50_ms": 1.061908,
+      "p95_ms": 1.2475141499999998,
+      "p99_ms": 1.4201178,
+      "max_ms": 2.352578,
+      "elapsed_s": 0.544206074,
+      "cpu_s": 0.543784946,
+      "throughput_decisions_per_s": 918.7696056475842,
+      "route_counts": {
+        "NO_SECURITY_ALERT": 90,
+        "BENIGN_EXPLAINED_BREAK": 72,
+        "SECURITY_ANOMALY_REVIEW": 285,
+        "MODEL_REVIEW": 18,
+        "MODEL_REVIEW_CONTEXT_UNCERTAIN": 35
+      }
+    },
+    "cache_stats_full": {
+      "hits": 46880,
+      "misses": 120,
+      "entries": 120
+    },
+    "note": "v7_full vs v8_full use identical 1800-scalar payloads. Registered-window uses prevalidated immutable history, so it is a separate operating mode, not an apples-to-apples full-payload speedup."
+  },
+  "verification": {
+    "original_quality_rows_matched": 1900,
+    "new_load_test": false,
+    "raw_gzip": "core_results.json.gz",
+    "raw_json_sha256": "bb023bc4f5ec639f538ed32f0400c493e67478fc54a2fc35a559b7d1b0320267",
+    "gzip_sha256": "61511c4b5d2105367957605ce3148ab6f9cc2e40053ad7ce1b0eb5efcd0e129a"
+  }
+}

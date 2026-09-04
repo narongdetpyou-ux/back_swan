@@ -1,0 +1,3 @@
+engine,benign_false_alert_rate,strong_attack_recall,evasive_observable_recall,all_attack_operational_capture,overall_expected_route_rate,low_and_slow_recall,correlated_weak_recall,suppression_risk_capture,lifecycle_route_accuracy
+v6_baseline,0.07833333333333334,0.9991666666666666,0.04833333333333333,0.777,0.7410526315789474,0.055,0.03,1.0,1.0
+v7,0.008333333333333333,1.0,0.94,0.997,0.9457894736842105,0.985,0.84,1.0,1.0

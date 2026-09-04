@@ -1,0 +1,39 @@
+engine,scenario_id,scenario_group,family,runs,attack_present,designed_evasive,desired_security_alert,expected_route,security_alert_rate,alert_rate_ci95_low,alert_rate_ci95_high,operational_escalation_rate,expected_route_rate,critic_correction_rate,dominant_point_rate,dominant_temporal_rate,dominant_collective_rate,description
+v6_baseline,normal_control,control,normal_activity,200,False,False,False,NO_SECURITY_ALERT,0.035,0.017055324637357105,0.07047146086668134,0.17,0.83,0.0,1.0,0.0,0.0,Ordinary seasonal telemetry.
+v6_baseline,planned_cloud_drift,benign,concept_drift,200,False,False,False,NO_SECURITY_ALERT,0.07,0.04215178292291873,0.11405578216683726,0.25,0.75,0.0,1.0,0.0,0.0,Small gradual baseline shift.
+v6_baseline,isolated_noise_burst,benign,isolated_noise_burst,200,False,False,False,NO_SECURITY_ALERT,0.29,0.2315392689125782,0.3563760535731166,0.565,0.435,0.0,1.0,0.0,0.0,One sub-threshold noisy point without persistence.
+v6_baseline,approved_backup,benign,backup_window,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.035,0.017055324637357105,0.07047146086668134,0.035,0.965,0.0,1.0,0.0,0.0,Large approved outbound transfer.
+v6_baseline,software_release,benign,release_error_burst,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.02,0.007804300176394188,0.050287865505193874,0.02,0.98,0.0,1.0,0.0,0.0,Documented release error burst.
+v6_baseline,campaign_traffic,benign,legitimate_traffic_surge,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.02,0.007804300176394188,0.050287865505193874,0.02,0.98,0.0,1.0,0.0,0.0,Approved demand campaign.
+v6_baseline,password_spray,attack,password_spray,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,1.0,0.0,0.0,Abrupt authentication attack.
+v6_baseline,credential_stuffing,attack,credential_stuffing,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,1.0,0.0,0.0,High-volume credential replay.
+v6_baseline,ddos_burst,attack,denial_of_service,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,1.0,0.0,0.0,Request flood plus 5xx errors.
+v6_baseline,exfiltration_burst,attack,data_exfiltration,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,1.0,0.0,0.0,Abrupt outbound transfer.
+v6_baseline,ransomware_burst,attack,ransomware,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,1.0,0.0,0.0,Endpoint and rename burst.
+v6_baseline,privilege_escalation,attack,privilege_escalation,200,True,False,True,SECURITY_ANOMALY_REVIEW,0.995,0.9722256001302286,0.999116854010634,1.0,0.995,0.0,1.0,0.0,0.0,Burst of privileged changes.
+v6_baseline,slow_exfiltration,evasive_attack,low_and_slow_exfiltration,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.055,0.030985020801370097,0.0957879244659355,0.25,0.055,0.0,1.0,0.0,0.0,Persistent outbound drift remains below the v6 25% gate.
+v6_baseline,correlated_subthreshold,evasive_attack,correlated_low_signal_intrusion,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.03,0.013820125830748327,0.06389511973247333,0.285,0.03,0.0,1.0,0.0,0.0,Four persistent weak signals remain below the v6 univariate gate.
+v6_baseline,stale_context_exfiltration,evasive_attack,stale_context_attack,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.06,0.0346518499012715,0.10193263530685089,0.235,0.06,0.0,1.0,0.0,0.0,A stale change record must not explain current exfiltration.
+v6_baseline,collector_failure,data_quality,telemetry_failure,200,False,False,False,TELEMETRY_HOLD,0.0,0.0,0.018846005918320894,1.0,1.0,0.0,1.0,0.0,0.0,Collector failure remains non-numeric.
+v6_baseline,log_suppression_attack,evasive_attack,telemetry_suppression,200,True,True,False,TELEMETRY_HOLD_SECURITY_RISK,0.0,0.0,0.018846005918320894,1.0,0.0,0.0,1.0,0.0,0.0,"Suppressed telemetry is a security-risk hold, not a numeric zero."
+v6_baseline,new_edr_sensor,lifecycle,new_telemetry_series,200,False,False,False,SERIES_LIFECYCLE_CHANGE,0.0,0.0,0.018846005918320894,0.0,1.0,0.0,1.0,0.0,0.0,New EDR series activation.
+v6_baseline,retired_proxy_metric,lifecycle,retired_telemetry_series,200,False,False,False,SERIES_LIFECYCLE_CHANGE,0.0,0.0,0.018846005918320894,0.0,1.0,0.0,1.0,0.0,0.0,Retired legacy proxy.
+v7,normal_control,control,normal_activity,200,False,False,False,NO_SECURITY_ALERT,0.005,0.0008831459893662054,0.02777439986977148,0.035,0.965,0.0,0.25,0.415,0.335,Ordinary seasonal telemetry.
+v7,planned_cloud_drift,benign,concept_drift,200,False,False,False,NO_SECURITY_ALERT,0.005,0.0008831459893662054,0.02777439986977148,0.725,0.275,0.47,0.01,0.9,0.09,Small gradual baseline shift.
+v7,isolated_noise_burst,benign,isolated_noise_burst,200,False,False,False,NO_SECURITY_ALERT,0.02,0.007804300176394188,0.050287865505193874,0.07,0.93,0.0,0.45,0.27,0.28,One sub-threshold noisy point without persistence.
+v7,approved_backup,benign,backup_window,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.005,0.0008831459893662054,0.02777439986977148,0.005,0.995,0.995,0.0,1.0,0.0,Large approved outbound transfer.
+v7,software_release,benign,release_error_burst,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.01,0.0027466006037749346,0.03572248519617954,0.01,0.99,0.99,0.0,1.0,0.0,Documented release error burst.
+v7,campaign_traffic,benign,legitimate_traffic_surge,200,False,False,False,BENIGN_EXPLAINED_BREAK,0.005,0.0008831459893662054,0.02777439986977148,0.005,0.995,0.995,0.0,1.0,0.0,Approved demand campaign.
+v7,password_spray,attack,password_spray,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,Abrupt authentication attack.
+v7,credential_stuffing,attack,credential_stuffing,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,High-volume credential replay.
+v7,ddos_burst,attack,denial_of_service,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,Request flood plus 5xx errors.
+v7,exfiltration_burst,attack,data_exfiltration,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,Abrupt outbound transfer.
+v7,ransomware_burst,attack,ransomware,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,Endpoint and rename burst.
+v7,privilege_escalation,attack,privilege_escalation,200,True,False,True,SECURITY_ANOMALY_REVIEW,1.0,0.9811539940816791,1.0,1.0,1.0,0.0,0.0,1.0,0.0,Burst of privileged changes.
+v7,slow_exfiltration,evasive_attack,low_and_slow_exfiltration,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.985,0.9568335194437211,0.9948858548155076,0.995,0.985,0.0,0.0,1.0,0.0,Persistent outbound drift remains below the v6 25% gate.
+v7,correlated_subthreshold,evasive_attack,correlated_low_signal_intrusion,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.84,0.7828581380609876,0.8843265779145542,0.975,0.84,0.0,0.0,0.98,0.02,Four persistent weak signals remain below the v6 univariate gate.
+v7,stale_context_exfiltration,evasive_attack,stale_context_attack,200,True,True,True,SECURITY_ANOMALY_REVIEW,0.995,0.9722256001302286,0.999116854010634,1.0,0.995,0.0,0.0,1.0,0.0,A stale change record must not explain current exfiltration.
+v7,collector_failure,data_quality,telemetry_failure,200,False,False,False,TELEMETRY_HOLD,0.0,0.0,0.018846005918320894,1.0,1.0,0.0,0.295,0.42,0.285,Collector failure remains non-numeric.
+v7,log_suppression_attack,evasive_attack,telemetry_suppression,200,True,True,False,TELEMETRY_HOLD_SECURITY_RISK,0.0,0.0,0.018846005918320894,1.0,1.0,0.0,0.245,0.4,0.355,"Suppressed telemetry is a security-risk hold, not a numeric zero."
+v7,new_edr_sensor,lifecycle,new_telemetry_series,200,False,False,False,SERIES_LIFECYCLE_CHANGE,0.0,0.0,0.018846005918320894,0.0,1.0,0.0,0.26,0.415,0.325,New EDR series activation.
+v7,retired_proxy_metric,lifecycle,retired_telemetry_series,200,False,False,False,SERIES_LIFECYCLE_CHANGE,0.0,0.0,0.018846005918320894,0.0,1.0,0.0,0.38,0.38,0.24,Retired legacy proxy.

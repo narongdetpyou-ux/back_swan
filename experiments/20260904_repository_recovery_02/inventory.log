@@ -1,0 +1,6 @@
+{
+  "files_checked": 63,
+  "errors": [],
+  "passed": true,
+  "scope": "Current deliverable and contained ZIP files; heuristic secret detection, not Git-history cleanup."
+}
