@@ -1,0 +1,38 @@
+test_approved_context_is_auditable_correction (test_black_swan_v7.BlackSwanV7Tests.test_approved_context_is_auditable_correction) ... ok
+test_benign_holdout_false_alert_is_bounded (test_black_swan_v7.BlackSwanV7Tests.test_benign_holdout_false_alert_is_bounded) ... ok
+test_calibration_is_deterministic (test_black_swan_v7.BlackSwanV7Tests.test_calibration_is_deterministic) ... ok
+test_context_cannot_create_anomaly (test_black_swan_v7.BlackSwanV7Tests.test_context_cannot_create_anomaly) ... ok
+test_correlated_weak_signals_are_fused (test_black_swan_v7.BlackSwanV7Tests.test_correlated_weak_signals_are_fused) ... ok
+test_lifecycle_precedes_forecast (test_black_swan_v7.BlackSwanV7Tests.test_lifecycle_precedes_forecast) ... ok
+test_low_and_slow_is_new_evidence_channel (test_black_swan_v7.BlackSwanV7Tests.test_low_and_slow_is_new_evidence_channel) ... ok
+test_stale_context_cannot_suppress_alert (test_black_swan_v7.BlackSwanV7Tests.test_stale_context_cannot_suppress_alert) ... ok
+test_suppression_has_security_risk_hold (test_black_swan_v7.BlackSwanV7Tests.test_suppression_has_security_risk_hold) ... ok
+test_27_original_audit_cases_are_total_and_json_safe (test_black_swan_v8.EngineTests.test_27_original_audit_cases_are_total_and_json_safe) ... ok
+test_attacks_survive_unrelated_metadata (test_black_swan_v8.EngineTests.test_attacks_survive_unrelated_metadata) ... ok
+test_cache_cold_warm_and_history_invalidation (test_black_swan_v8.EngineTests.test_cache_cold_warm_and_history_invalidation) ... ok
+test_cache_limit (test_black_swan_v8.EngineTests.test_cache_limit) ... ok
+test_duplicate_reordered_concurrent_inputs_are_stable (test_black_swan_v8.EngineTests.test_duplicate_reordered_concurrent_inputs_are_stable) ... ok
+test_expired_context_cannot_suppress (test_black_swan_v8.EngineTests.test_expired_context_cannot_suppress) ... ok
+test_history_gaps_do_not_shift_phase_silently (test_black_swan_v8.EngineTests.test_history_gaps_do_not_shift_phase_silently) ... ok
+test_instruction_text_is_data_not_authority (test_black_swan_v8.EngineTests.test_instruction_text_is_data_not_authority) ... ok
+test_limits_before_features (test_black_swan_v8.EngineTests.test_limits_before_features) ... ok
+test_no_trust_registry_means_no_context_suppression (test_black_swan_v8.EngineTests.test_no_trust_registry_means_no_context_suppression) ... ok
+test_operator_registered_context_preserves_benign_gate (test_black_swan_v8.EngineTests.test_operator_registered_context_preserves_benign_gate) ... ok
+test_prepared_path_identical_60_cases (test_black_swan_v8.EngineTests.test_prepared_path_identical_60_cases) ... ok
+test_reference_math_and_routes_450_complete_cases (test_black_swan_v8.EngineTests.test_reference_math_and_routes_450_complete_cases) ... ok
+test_seeded_malformed_fuzz_300 (test_black_swan_v8.EngineTests.test_seeded_malformed_fuzz_300) ... ok
+test_snapshot_is_copy_and_revised_token_revoked (test_black_swan_v8.EngineTests.test_snapshot_is_copy_and_revised_token_revoked) ... ok
+test_update_unknown_metric_and_nan (test_black_swan_v8.EngineTests.test_update_unknown_metric_and_nan) ... ok
+test_verifier_exception_is_explicit_review (test_black_swan_v8.EngineTests.test_verifier_exception_is_explicit_review) ... ok
+test_widened_context_scope_cannot_claim_registry_authority (test_black_swan_v8.EngineTests.test_widened_context_scope_cannot_claim_registry_authority) ... ok
+test_cancellation_stops_active_work_and_recovers (test_black_swan_v8.RuntimeTests.test_cancellation_stops_active_work_and_recovers) ... ok
+test_overload_bounded_and_no_silent_loss (test_black_swan_v8.RuntimeTests.test_overload_bounded_and_no_silent_loss) ... ok
+test_preloaded_update_through_runtime (test_black_swan_v8.RuntimeTests.test_preloaded_update_through_runtime) ... ok
+test_real_timeout_kills_and_recovers_three_times (test_black_swan_v8.RuntimeTests.test_real_timeout_kills_and_recovers_three_times) ... ok
+test_transport_rejects_nested_objects_and_oversize_before_pickle (test_black_swan_v8.RuntimeTests.test_transport_rejects_nested_objects_and_oversize_before_pickle) ... ok
+test_worker_crash_and_exception_are_isolated (test_black_swan_v8.RuntimeTests.test_worker_crash_and_exception_are_isolated) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 7.585s
+
+OK
