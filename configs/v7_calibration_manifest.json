@@ -1,0 +1,53 @@
+{
+  "benchmark_version": "v7-cybersecurity-sequential-1",
+  "seed": 20260904,
+  "calibration": {
+    "composite_threshold": 1.3503934865225848,
+    "quantile": 0.99,
+    "calibration_size": 900,
+    "target_false_alert_rate": 0.01,
+    "base_point": 8.079897537721207,
+    "base_temporal": 11.554667181830299,
+    "base_collective": 5.6401785375655615,
+    "review_fraction": 0.8,
+    "context_min_confidence": 0.95,
+    "min_history": 72,
+    "max_fused_metrics": 4
+  },
+  "repeats_per_family": 200,
+  "scenario_count": 19,
+  "metric_count": 10,
+  "engines": [
+    {
+      "engine": "v6_baseline",
+      "benign_false_alert_rate": 0.07833333333333334,
+      "strong_attack_recall": 0.9991666666666666,
+      "evasive_observable_recall": 0.04833333333333333,
+      "all_attack_operational_capture": 0.777,
+      "overall_expected_route_rate": 0.7410526315789474,
+      "low_and_slow_recall": 0.055,
+      "correlated_weak_recall": 0.03,
+      "suppression_risk_capture": 1.0,
+      "lifecycle_route_accuracy": 1.0
+    },
+    {
+      "engine": "v7",
+      "benign_false_alert_rate": 0.008333333333333333,
+      "strong_attack_recall": 1.0,
+      "evasive_observable_recall": 0.94,
+      "all_attack_operational_capture": 0.997,
+      "overall_expected_route_rate": 0.9457894736842105,
+      "low_and_slow_recall": 0.985,
+      "correlated_weak_recall": 0.84,
+      "suppression_risk_capture": 1.0,
+      "lifecycle_route_accuracy": 1.0
+    }
+  ],
+  "limitations": [
+    "Synthetic aggregate telemetry is not a production IDS/EDR evaluation.",
+    "The v6 comparator freezes the published v6 gates; it is not the original missing implementation.",
+    "Context events are synthetic records and do not prove real-world causality.",
+    "Calibration controls this generator distribution and must be repeated after domain shift."
+  ],
+  "manifest_sha256": "1f866cd932ca2593005d549ef417d5c2bb705cecd9bb326dace1e0ae6e57a5a3"
+}

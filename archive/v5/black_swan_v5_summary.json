@@ -1,0 +1,59 @@
+{
+  "system": "Black Swan Logic v5",
+  "real_data_series_90739": {
+    "2020": 7787.0,
+    "2021": 6483.0,
+    "2022": 12397.5,
+    "2023": 18823.0,
+    "2024": 18999.0
+  },
+  "real_2024_result": {
+    "legacy_v3": {
+      "expected": 21128.25,
+      "scale": 2393.4508124602576,
+      "z": -0.8896151067384241,
+      "anomaly": false
+    },
+    "v5_classification": "NORMAL_WITH_CONTEXT",
+    "v5_consensus": 0.0,
+    "v5_uncertainty": 0.965566600509897,
+    "v5_causal_score": 0.525,
+    "models": [
+      {
+        "model": "naive_last",
+        "expected": 18823.0,
+        "z": 0.09350262976146204,
+        "vote": false
+      },
+      {
+        "model": "linear_trend",
+        "expected": 21128.25,
+        "z": -0.899285816916431,
+        "vote": false
+      },
+      {
+        "model": "median_growth",
+        "expected": 28578.772252470255,
+        "z": -0.573812895600284,
+        "vote": false
+      }
+    ]
+  },
+  "monte_carlo": {
+    "normal_trials": 5000,
+    "normal_black_swan_candidate_rate": 0.0004,
+    "normal_model_review_rate": 0.051,
+    "shock_trials": 5000,
+    "shock_black_swan_candidate_rate": 1.0,
+    "shock_model_review_rate": 0.0,
+    "shock_range": "50%-200% signed relative to forecast center",
+    "normal_noise_sigma": "10% of forecast center"
+  },
+  "design_changes": [
+    "multi-model consensus",
+    "uncertainty / model disagreement",
+    "causal relevance scoring",
+    "fail-closed data quality gate",
+    "Black Swan candidate rather than definitive Black Swan"
+  ]
+}

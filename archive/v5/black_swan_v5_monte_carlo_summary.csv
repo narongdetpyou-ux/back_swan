@@ -1,0 +1,2 @@
+normal_trials,normal_black_swan_candidate_rate,normal_model_review_rate,shock_trials,shock_black_swan_candidate_rate,shock_model_review_rate,shock_range,normal_noise_sigma
+5000,0.0004,0.051,5000,1.0,0.0,50%-200% signed relative to forecast center,10% of forecast center
