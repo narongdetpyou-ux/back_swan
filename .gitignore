@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+outputs/
+
+# Local credentials must never be committed.
+openai-api-key.txt
+*.env
+.env*
+!.env.example
