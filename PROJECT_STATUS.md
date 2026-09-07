@@ -1,6 +1,18 @@
 # สถานะ Black Swan
 
-อัปเดต: 4 กันยายน 2026 — งานกู้ไฟล์และจัดโครงสร้าง repository
+อัปเดต: 4 กันยายน 2026 — จัดที่เก็บไฟล์และมาตรฐานการทดลอง (ข้อ 9–11)
+
+## งานจัดเก็บและบันทึก run ล่าสุด
+
+- คง private repository `back_swan` และ package `black_swan`; mapping อยู่ใน README และ `configs/storage_policy.json`
+- เพิ่ม manifest ต่อ run, ชื่อ UTC ที่ไม่ซ้ำ, การไม่เขียนทับผลเดิม, source/result hashes และบันทึกสถานะเมื่อ exception/timeout
+- tests รวมผ่าน 46/46 (โมเดลเดิม 33 + workflow ใหม่ 13) ใน 7.588 วินาที: `experiments/20260904T154411280065Z_v8_regression_bd35c955/`
+- ประเมิน v8 ซ้ำด้วย `--skip-load`: quality 1,900 แถวตรงผลเดิมทั้งหมด; fault recovery 5/5; workers หลังปิด = 0 ผลอยู่ใน `experiments/20260904T154412792811Z_v8_evaluation_046da720/` โดยบีบอัด JSON แบบ lossless และเก็บ hash ต้นฉบับ/ไฟล์บีบอัดใน `promotion.json`
+- Source engine/runtime ไม่เปลี่ยน; evaluator เปลี่ยนเฉพาะ CLI และ metadata ไม่เปลี่ยนฟังก์ชันประเมินเชิงตัวเลข 7 ฟังก์ชัน
+- Export สร้าง ZIP และ `.sha256`; ตัวตรวจใหม่ตรวจ transport/member hashes และกู้ไปโฟลเดอร์ใหม่โดยไม่เขียนทับ
+- Dropbox เชื่อมแล้ว; รอยืนยันปลายทางและการคัดลอก ยังไม่อ้างว่า backup ภายนอกสำเร็จหรือมี recurring backup
+
+รายละเอียด: `docs/DATA_STORAGE.md`, `docs/EXPERIMENTS.md`
 
 ## รุ่นหลักและหลักฐาน
 
