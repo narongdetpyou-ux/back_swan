@@ -21,7 +21,8 @@ import time
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-sys.path[:0] = [str(ROOT/'src'), str(ROOT/'tests'), str(HERE), str(HERE/'support/v7_latency_audit')]
+sys.path[:0] = [str(ROOT/'src'), str(ROOT/'tests'), str(ROOT/'scripts'), str(HERE), str(HERE/'support/v7_latency_audit')]
+from experiment_record import RunRecord
 from black_swan.engine import BlackSwanV8, WindowUpdate, Limits
 from black_swan.runtime import IsolatedDecisionPool
 from fixtures.v8_synthetic import trusted_fixtures, update_for
@@ -248,12 +249,30 @@ def load_run(mode, rate, duration, trusted, repeat=0):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', default=str(ROOT/'experiments/local'/time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())/'v8_results.json'))
-    parser.add_argument('--load-only', action='store_true')
-    parser.add_argument('--skip-load', action='store_true')
+    parser.add_argument('--output', help='Result JSON in a NEW run directory (parent must not exist).')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--load-only', action='store_true')
+    mode.add_argument('--skip-load', action='store_true')
     args = parser.parse_args()
-    if Path(args.output).exists():
-        parser.error('Output already exists; choose a new run path to preserve prior evidence.')
+    output = Path(args.output).resolve() if args.output else None
+    if output and (output.name in ('manifest.json', '.manifest.tmp') or output.suffix != '.json'):
+        parser.error('Use a .json result filename other than manifest.json.')
+    metadata = {'dataset': 'original-v7-synthetic-generator',
+                'split': 'fixed synthetic regression; not an independent real-data holdout',
+                'seeds': {'quality': [1421000, 1421099], 'novel': [1451000, 1451099],
+                          'other': 'Defined in hashed evaluator, fixtures and audit sources'},
+                'calibration': asdict(calibration()),
+                'load_only': args.load_only, 'skip_load': args.skip_load,
+                'exclusions': ['real-data replay', 'production deployment'] +
+                              (['load sweep'] if args.skip_load else []) +
+                              (['unit tests', 'microbenchmark', 'quality', 'resilience'] if args.load_only else [])}
+    with RunRecord(ROOT, 'v8', 'evaluation', output=output.parent if output else None,
+                   metadata=metadata) as record:
+        args.output = str(record.path / (output.name if output else 'v8_results.json'))
+        evaluate(args, record)
+
+
+def evaluate(args, record):
     trusted = trusted_fixtures()
     names = ['src/black_swan/engine.py', 'src/black_swan/runtime.py', 'tests/test_black_swan_v8.py', 'tests/fixtures/v8_synthetic.py', 'benchmarks/evaluate_black_swan_v8.py', 'src/black_swan_v7_engine.py', 'benchmarks/support/v7_latency_audit/black_swan_v7_latency_edge_audit.py', 'benchmarks/support/v7_latency_audit/sources/black_swan_v7_manifest.json']
     hashes = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names}
@@ -291,6 +310,11 @@ def main():
         print('Mini-soak:', json.dumps({k:row[k] for k in ['offered','computed_decisions','rejected','fallback_responses','accounting_ok']}), flush=True)
     report['code_unchanged_during_evaluation'] = all(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()==h for n,h in hashes.items())
     checkpoint()
+    record.manifest['details'] = {'results': Path(args.output).name,
+                                  'code_unchanged': report['code_unchanged_during_evaluation'],
+                                  'load_runs': len(report['load'])}
+    if not report['code_unchanged_during_evaluation']:
+        raise RuntimeError('Source changed during evaluation')
     print('Saved:',args.output, flush=True)
 
 

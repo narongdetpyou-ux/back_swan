@@ -27,16 +27,24 @@
 
 ## กติกาแต่ละ run
 
-ใช้ชื่อ UTC + รุ่น + วัตถุประสงค์/seed ไม่เขียนทับผลเดิม เก็บ command, Python/platform/hardware, calibration, seed/split, source SHA-256, counts, failures และ exclusions ควบคู่ผล
+ใช้ชื่อ UTC + รุ่น + วัตถุประสงค์ + รหัสไม่ซ้ำ ไม่เขียนทับผลเดิม คำสั่งตรวจและ evaluator v8 สร้าง `manifest.json` อัตโนมัติ พร้อม command, Python/platform, calibration, seed/split, source SHA-256, สถานะ และ artifact checksums รายละเอียดและตัวอย่างอยู่ใน [EXPERIMENTS.md](EXPERIMENTS.md)
 
 แยก raw data, transformed features, ground-truth labels และ predictions อย่ารวม prediction เป็น label โดยไม่ระบุขั้นตรวจสอบ เก็บ calibration และ final holdout คนละ seed/time range
 
 ## สำรองและกู้คืน
 
-`python3 scripts/export_snapshot.py --output backups/black_swan_snapshot.zip` ตรวจ current files แล้วส่งออก ZIP พร้อม `SNAPSHOT_CHECKSUMS.json`; ไม่รวม Git history, credentials, private data, local experiments หรือ backups เดิม
+`python3 scripts/export_snapshot.py --output backups/black_swan_snapshot.zip` ตรวจ current files แล้วส่งออก ZIP พร้อม `SNAPSHOT_CHECKSUMS.json` ภายใน และ `black_swan_snapshot.zip.sha256` ภายนอก; ไม่รวม Git history, credentials, private data, local experiments หรือ backups เดิม ใช้ชื่อ snapshot ใหม่ทุกครั้ง
 
-ย้าย ZIP ไปพื้นที่ส่วนตัวอีกแห่งหนึ่งที่คุณควบคุม และเก็บข้อมูลภายนอกที่อ้างใน manifest ด้วย การมี ZIP ใน GitHub เดียวกันไม่ใช่สำเนานอกระบบ ไม่ได้ตั้ง recurring backup หรือปลายทาง cloud ใหม่ในงานนี้
+ผู้ใช้เลือกและเชื่อม Dropbox สำหรับสำรองนอก GitHub แล้ว ปลายทางที่เสนอคือ `/back_swan/backups/<UTC>/` โดยคัดลอก ZIP + checksum ไม่ย้ายไฟล์ต้นฉบับ ไม่สร้าง public sharing link และไม่ลบสำรองเดิม ต้องยืนยัน path ก่อนสร้างโฟลเดอร์/คัดลอกตามขั้นตอน Dropbox; ณ เอกสารนี้ยังไม่มีหลักฐานการอัปโหลด จึงไม่ถือว่าสำรองภายนอกเสร็จแล้ว ดูสถานะที่ [storage_policy.json](../configs/storage_policy.json)
 
-หลังแตก snapshot ให้รัน `python3 scripts/run_checks.py` จาก clean directory และเทียบ checksums การสำรองประวัติ Git หรือ LFS ในอนาคตต้องวางแผนแยก โดยคำนึงถึง credential ที่เคยอยู่ใน history
+เก็บข้อมูลภายนอกที่อ้างใน manifest แยกด้วย โดยเฉพาะผล v7 ฉบับเต็มซึ่งไม่รวมใน snapshot การมี ZIP ใน GitHub เดียวกันหรือพื้นที่ทำงานชั่วคราวไม่ใช่สำเนาสำรองที่ทนทานนอกระบบ ยังไม่ได้ตั้ง recurring backup และไม่ต้องซื้อบริการใหม่เพื่อเริ่มจัดชุดปัจจุบัน
+
+ตรวจ checksum และกู้ไปโฟลเดอร์ที่ยังไม่มีอยู่:
+
+```bash
+python3 scripts/verify_snapshot.py backups/black_swan_snapshot.zip --restore-to ../back_swan_restore_new
+```
+
+จากโฟลเดอร์ที่กู้แล้ว รัน `PYTHONNOUSERSITE=1 python3 scripts/run_checks.py` อีกครั้ง ตัวตรวจปฏิเสธ ZIP ที่ hash ผิด, มีไฟล์นอก manifest หรือ path traversal และไม่เขียนทับปลายทางเดิม checksum ตรวจความครบถ้วน ไม่ใช่ digital signature; ต้องเก็บค่าที่เชื่อถือได้แยกจากไฟล์ที่รับมา การสำรองประวัติ Git หรือ LFS ต้องวางแผนแยก โดยคำนึงถึง credential ที่เคยอยู่ใน history
 
 เมื่อข้อมูลโต ใช้ private data/object storage หรือ Git LFS ตามความจำเป็น เก็บ manifests/config/summaries ใน Git; [GitHub แนะนำเรื่องไฟล์ใหญ่](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
