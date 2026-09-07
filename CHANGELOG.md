@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-09-04 — Storage policy and experiment records
+
+- Keep `back_swan` repository / `black_swan` package mapping explicit.
+- Add UTC-unique run IDs, finalized manifests, source/config and artifact SHA-256, honest Git identity for snapshots, and failure/timeout recording.
+- Integrate manifests into regression checks and v8 evaluation; reject reused run directories and incompatible evaluation flags.
+- Add automatic snapshot SHA-256 sidecars and checked, non-overwriting restoration.
+- Add 13 workflow tests; all 46 tests pass. Repeat v8 quality: all 1,900 rows match the original; no new load sweep or model logic changes.
+- Preserve checked run evidence and losslessly compressed results; document private external backup destination awaiting confirmation/upload.
+
 ## 2026-09-04 — Repository recovery and organization
 
 - Merge PR #1 to remove tracked credential from main and add ignore rules; revocation remains unverified.

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "code_repository": "narongdetpyou-ux/back_swan",
+  "repository_visibility": "private",
+  "python_package": "black_swan",
+  "paths": {
+    "source": "src/black_swan",
+    "raw_data": "data/raw",
+    "processed_data": "data/processed",
+    "split_manifests": "data/splits",
+    "data_provenance": "data/manifests",
+    "unreviewed_runs": "experiments/local",
+    "reviewed_baselines": "experiments/<run_id>",
+    "reports": "reports",
+    "historical_releases": "archive/releases",
+    "private_data_ignored": "data/private"
+  },
+  "external_backup": {
+    "provider_selected": "Dropbox",
+    "proposed_root": "/back_swan/backups",
+    "destination_confirmed": false,
+    "uploaded": false,
+    "automatic_schedule_enabled": false,
+    "scope": "Current-file ZIP plus SHA-256 sidecar; no Git history, credentials, private data or unreviewed local runs",
+    "retention": "Keep existing snapshots; deletion requires a separate explicit decision"
+  }
+}

@@ -8,6 +8,7 @@ from pathlib import Path
 import platform
 import subprocess
 import sys
+from experiment_record import RunRecord
 
 ROOT=Path(__file__).resolve().parent.parent
 
@@ -15,11 +16,13 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--output',type=Path)
     args=parser.parse_args()
-    run=args.output or ROOT/'experiments/local'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ_checks')
-    run=run.resolve()
-    if run.exists() and any(run.iterdir()):
-        parser.error('Run directory is not empty; use a new run ID.')
-    run.mkdir(parents=True,exist_ok=True)
+    with RunRecord(ROOT, 'v8', 'regression', output=args.output,
+                   metadata={'dataset': 'unit-test fixtures', 'seeds': 'defined in hashed test sources',
+                             'split': 'regression; not a model holdout'}) as record:
+        return run_checks(record)
+
+def run_checks(record):
+    run=record.path
     report={'utc':datetime.now(timezone.utc).isoformat(),'python':sys.version,'platform':platform.platform(),
             'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
               for d in ['src','tests','benchmarks'] for p in sorted((ROOT/d).rglob('*.py'))},'checks':[]}
@@ -34,6 +37,8 @@ def main():
         if result.returncode:
             break
     report['passed']=len(report['checks'])==2 and all(x['exit_code']==0 for x in report['checks'])
+    record.manifest['details']['checks_passed']=report['passed']
+    record.outcome='completed' if report['passed'] else 'failed'
     (run/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Results:',run)
     return 0 if report['passed'] else 1
