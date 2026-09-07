@@ -36,7 +36,7 @@ from black_swan import BlackSwanV8, Calibration, ScenarioInput, IsolatedDecision
 | `src/black_swan/engine.py` | Engine v8 ที่กู้จากชุด verified เดิม; แก้เฉพาะการจัด module/import |
 | `src/black_swan/runtime.py` | Runtime ที่มี queue, watchdog, cancellation และ worker isolation |
 | `src/black_swan_v7_engine.py` | Reference math v7 ที่ v8 ใช้ร่วมกัน; bytes เดิม |
-| `tests/` | Regression v7 9 รายการ + v8 24 รายการ และ synthetic fixtures |
+| `tests/` | Regression v7 9 + v8 24 รายการ, workflow tests และ synthetic fixtures |
 | `benchmarks/` | เครื่องมือประเมินคุณภาพ ความเร็ว และโหลด |
 | `configs/` | Manifest การสอบเทียบเดิม |
 | `data/` | ข้อมูลต้นทางที่กู้ได้, provenance และกติกาการแบ่งชุด |
@@ -66,6 +66,8 @@ python3 scripts/export_snapshot.py --output backups/black_swan_snapshot.zip
 ```
 
 ZIP นี้รวม current files และ checksums; ไม่รวม `.git`, credentials, private data, local runs หรือ backup ซ้อนกัน เก็บสำเนาไว้ในพื้นที่ส่วนตัวอีกแห่งหนึ่งและเก็บข้อมูล/ผลที่อยู่ภายนอกตาม manifest ด้วย ดู [วิธีจัดเก็บ](docs/DATA_STORAGE.md)
+
+ได้ไฟล์ `.zip.sha256` อัตโนมัติด้วย ตรวจและกู้ด้วย `scripts/verify_snapshot.py` ทุก run ใหม่สร้าง `manifest.json` พร้อมสถานะ เวลา source/result hashes และคำสั่งที่ใช้ อ่าน [กติกาตั้งชื่อและบันทึก run](docs/EXPERIMENTS.md) และ [mapping ตำแหน่งเก็บไฟล์](configs/storage_policy.json) ก่อนเพิ่ม dataset หรือ baseline ใหม่
 
 ## Credential ที่ต้องติดตาม
 

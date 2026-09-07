@@ -1,0 +1,24 @@
+{
+  "original_manifest_preserved": true,
+  "files": {
+    "inventory.log": {
+      "stored_path": "inventory.log",
+      "stored_sha256": "434c726c3f59dbb90d3901cb7f970aa9f2ecbab42c8217eb5862a9ff1503147f",
+      "original_sha256": "434c726c3f59dbb90d3901cb7f970aa9f2ecbab42c8217eb5862a9ff1503147f",
+      "compression": null
+    },
+    "regression.log": {
+      "stored_path": "regression.log",
+      "stored_sha256": "eb051878fc035f9a1f7064712e007e80c8cf855664ac9fb70f50ebda68aabb46",
+      "original_sha256": "eb051878fc035f9a1f7064712e007e80c8cf855664ac9fb70f50ebda68aabb46",
+      "compression": null
+    },
+    "summary.json": {
+      "stored_path": "summary.json",
+      "stored_sha256": "f4ee2b36077eafa2c0a1fa4093c9a0deb110af5e3525f92d02e826fc42ea5730",
+      "original_sha256": "f4ee2b36077eafa2c0a1fa4093c9a0deb110af5e3525f92d02e826fc42ea5730",
+      "compression": null
+    }
+  },
+  "purpose": "Storage workflow regression evidence, not model retuning or a new performance claim"
+}

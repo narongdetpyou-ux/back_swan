@@ -1,0 +1,12 @@
+{
+  "original_manifest_preserved": true,
+  "files": {
+    "v8_results.json": {
+      "stored_path": "v8_results.json.gz",
+      "stored_sha256": "21ef1e91ddb9cab400950031cdfd1a70cbe6408f749d3a8a12441f80bd6c7423",
+      "original_sha256": "efb5b9bc0abc042aee251481950c7a707a2e3e1cc92fecb54c7eb3caff80176b",
+      "compression": "gzip"
+    }
+  },
+  "purpose": "Storage workflow regression evidence, not model retuning or a new performance claim"
+}
