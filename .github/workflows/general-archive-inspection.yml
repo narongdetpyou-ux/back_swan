@@ -1,0 +1,26 @@
+name: Inspect General Lab archive
+
+on:
+  push:
+    branches: [codex/colab-verified-runs]
+    paths:
+      - incoming/**
+      - scripts/inspect_general_archive.py
+      - tests/test_general_archive.py
+      - .github/workflows/general-archive-inspection.yml
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Validate archive inspector with synthetic fixtures
+        run: python3 -m unittest discover -s tests -p test_general_archive.py -v
+      - name: Inspect supplied ZIP when present
+        run: python3 scripts/inspect_general_archive.py incoming/Black_Swan_Colab_Review_2026-09-14.zip
