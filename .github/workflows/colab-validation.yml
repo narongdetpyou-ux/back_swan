@@ -19,3 +19,9 @@ jobs:
         run: python3 --version
       - name: Execute notebook contract tests
         run: python3 -m unittest discover -s tests -p test_colab_notebook.py -v
+      - name: Check repository inventory
+        run: python3 scripts/check_repository.py
+      - name: Run existing v7, v8, and storage workflow regressions
+        env:
+          PYTHONPATH: src
+        run: python3 -m unittest discover -s tests -p test_*.py -v
