@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Read-only audit of saved Black Swan v7; standard library, Python 3.12.
+"""Audit of saved Black Swan v7; standard library, Python 3.12.
 
 Put the original engine, benchmark and manifest in ./sources, then run:
   python3 black_swan_v7_latency_edge_audit.py --output v7_latency_edge_results.json
 
-No tuning, engine edits, external calls, production traffic or real attacks.
 The subprocess exception catcher is TEST INFRASTRUCTURE, not an engine fix.
 """
 from __future__ import annotations
