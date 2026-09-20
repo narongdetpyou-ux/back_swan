@@ -1,8 +1,31 @@
 # Black Swan — back_swan
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/narongdetpyou-ux/back_swan/blob/main/notebooks/quickstart.ipynb)
+
 **รุ่นหลัก: Logic v8 / สถานะ: research prototype สำหรับคัดกรอง anomaly และช่วยผู้ตรวจตัดสินใจ**
 
 โครงการนี้คำนวณหลักฐานจาก metric windows, ตรวจข้อมูลและ context, ส่ง REVIEW เมื่อข้อมูลไม่พอ และมี runtime แยก process เพื่อควบคุมงานค้าง ไม่ใช่ LLM ที่ฝึกใหม่ และยังไม่ผ่าน production real-data/long-duration load validation
+
+## Data flow
+
+```mermaid
+flowchart LR
+    A[Metric windows / event data] --> B[Input validation & quality checks]
+    B --> C1[Point anomaly]
+    B --> C2[Temporal anomaly]
+    B --> C3[Collective anomaly]
+    C1 --> D[Evidence fusion]
+    C2 --> D
+    C3 --> D
+    D --> E[Context + lifecycle critic]
+    E --> F{Decision}
+    F -->|evidence strong| G[ALERT / ESCALATE]
+    F -->|uncertain or incomplete| H[REVIEW]
+    F -->|within calibrated bounds| I[PASS]
+    H --> J[Human / downstream verification]
+```
+
+แผนภาพนี้แสดงเส้นทางหลักของ Logic v8: รับ metric windows → ตรวจคุณภาพ → คำนวณหลักฐาน 3 ช่องทาง → รวมหลักฐาน → ตรวจ context/lifecycle → ส่งผล PASS, REVIEW หรือ ALERT/ESCALATE
 
 ## เริ่มใช้งาน
 
@@ -44,6 +67,7 @@ from black_swan import BlackSwanV8, Calibration, ScenarioInput, IsolatedDecision
 | `reports/` | รายงานตรวจสอบและผลแต่ละรุ่น |
 | `archive/releases/` | ZIP เดิมที่เก็บไว้ตรวจย้อนกลับ |
 | `docs/` | Contract, วิธีเก็บข้อมูล, และสถานะ credential |
+| `notebooks/quickstart.ipynb` | Quickstart สำหรับเปิดใน Colab และทดลอง Logic Anomaly Detection |
 
 ## ผลเดิมและข้อจำกัด
 
