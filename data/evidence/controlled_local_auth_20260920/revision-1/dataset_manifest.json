@@ -1,0 +1,99 @@
+{
+  "blind_test_locked": true,
+  "dataset_id": "controlled_local_auth_20260920",
+  "dataset_type": "controlled_security_telemetry",
+  "event_count": 30,
+  "evidence_link_sha256": "7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559",
+  "ground_truth_method": "Pre-request operator action ledger matched to event_id; no detector predictions generated",
+  "inputs": {
+    "features": {
+      "authorization": "Repository-owner controlled experiment; localhost only; no third-party traffic",
+      "bytes": 1803,
+      "collected_end_utc": "2026-09-20T08:27:10.330064Z",
+      "collected_start_utc": "2026-09-20T08:27:09.628886Z",
+      "dataset_role": "engine_input",
+      "path_or_uri": "data/private/controlled_local_auth_20260920/auth_features.csv",
+      "provenance": "Authorized local collection produced by scripts/collect_controlled_auth_telemetry.py",
+      "sha256": "66f746c62323ab0d72dad2f5a94273a429c9b475fbd721d87c57693214fdcb0d",
+      "source_system": "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)",
+      "transformation_id": "auth-event-one-hot-v1"
+    },
+    "labels": {
+      "adjudication_method": "Pre-request operator action ledger matched to event_id; no detector predictions generated",
+      "authorization": "Repository-owner controlled experiment; localhost only; no third-party traffic",
+      "bytes": 4967,
+      "collected_end_utc": "2026-09-20T08:27:10.330064Z",
+      "collected_start_utc": "2026-09-20T08:27:09.628886Z",
+      "dataset_role": "ground_truth_hidden",
+      "independent_of_predictions": true,
+      "path_or_uri": "data/private/controlled_local_auth_20260920/ground_truth_actions.jsonl",
+      "provenance": "Authorized local collection produced by scripts/collect_controlled_auth_telemetry.py",
+      "sha256": "6f7c0d01a959876858587af7e841924d2246c00a0ec06b9f33000d246ea55ddf",
+      "source_system": "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+    },
+    "raw": {
+      "authorization": "Repository-owner controlled experiment; localhost only; no third-party traffic",
+      "bytes": 6750,
+      "collected_end_utc": "2026-09-20T08:27:10.330064Z",
+      "collected_start_utc": "2026-09-20T08:27:09.628886Z",
+      "dataset_role": "source_evidence",
+      "path_or_uri": "data/private/controlled_local_auth_20260920/raw_auth_events.jsonl",
+      "provenance": "Authorized local collection produced by scripts/collect_controlled_auth_telemetry.py",
+      "sha256": "bf26d9f51100e2948a55a0cce47e838113403ac1d7c38a1a48a9cb32e81a28a7",
+      "source_system": "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+    }
+  },
+  "labels_hidden_from_engine": true,
+  "limitations": [
+    "localhost-only controlled traffic",
+    "single source IP",
+    "sub-second collection window",
+    "30 events",
+    "four of ten canonical metrics"
+  ],
+  "metric_contract": {
+    "decision_cadence_seconds": 0.02,
+    "selected_metrics": [
+      "auth_failures",
+      "unique_failed_accounts",
+      "unique_source_ips",
+      "successful_logins"
+    ],
+    "source_mapping": {
+      "auth_failures": "count(authentication_result=failure) per event",
+      "successful_logins": "count(authentication_result=success) per event",
+      "unique_failed_accounts": "distinct account_id where authentication_result=failure per event",
+      "unique_source_ips": "distinct source_ip per event"
+    }
+  },
+  "phase_boundary": "Phase 1 only; detector evaluation and Phase 2 were not run",
+  "privacy": {
+    "credentials_in_git": false,
+    "direct_identifiers_in_git": false
+  },
+  "revision": "1",
+  "schema_version": 1,
+  "source_systems": [
+    "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+  ],
+  "split_policy": "chronological",
+  "splits": {
+    "baseline": {
+      "end_utc": "2026-09-20T08:27:09.848833Z",
+      "start_utc": "2026-09-20T08:27:09.618604Z"
+    },
+    "blind_test": {
+      "end_utc": "2026-09-20T08:27:10.350814Z",
+      "start_utc": "2026-09-20T08:27:10.131486Z"
+    },
+    "calibration": {
+      "end_utc": "2026-09-20T08:27:10.101279Z",
+      "start_utc": "2026-09-20T08:27:09.879012Z"
+    }
+  },
+  "time_range": {
+    "end_utc": "2026-09-20T08:27:10.330064Z",
+    "start_utc": "2026-09-20T08:27:09.628886Z"
+  },
+  "timezone": "UTC"
+}

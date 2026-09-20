@@ -1,0 +1,37 @@
+{
+  "dataset_id": "controlled_local_auth_20260920",
+  "event_count": 30,
+  "evidence_link_sha256": "7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559",
+  "limitations": [
+    "localhost-only controlled traffic",
+    "single source IP",
+    "sub-second collection window",
+    "30 events",
+    "four of ten canonical metrics"
+  ],
+  "mapping": {
+    "auth_failures": "count(authentication_result=failure) per event",
+    "successful_logins": "count(authentication_result=success) per event",
+    "unique_failed_accounts": "distinct account_id where authentication_result=failure per event",
+    "unique_source_ips": "distinct source_ip per event"
+  },
+  "metric_coverage": {
+    "catalog_total": 10,
+    "covered": 4,
+    "metrics": [
+      "auth_failures",
+      "unique_failed_accounts",
+      "unique_source_ips",
+      "successful_logins"
+    ],
+    "ratio": 0.4
+  },
+  "revision": "1",
+  "source_systems": [
+    "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+  ],
+  "time_range": {
+    "end_utc": "2026-09-20T08:27:10.330064Z",
+    "start_utc": "2026-09-20T08:27:09.628886Z"
+  }
+}

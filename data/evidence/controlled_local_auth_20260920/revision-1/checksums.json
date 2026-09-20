@@ -1,0 +1,83 @@
+{
+  "algorithm": "SHA-256",
+  "dataset_id": "controlled_local_auth_20260920",
+  "event_count": 30,
+  "evidence_artifacts": {
+    "admission_decision.json": "8423b2b3f1f4c3b3d3c0044ab088df171c22b2b0f130076e1e2ed6c6ba77e5f2",
+    "data_quality_report.json": "7087dc721a15f56cc04da71db9dae6b1d0bf545235612d5df867f899ed0abedd",
+    "dataset_manifest.json": "456bd84be7809e9410ffdf22b635ffa16a29243a73b1d9b93c2ae72c8713178e",
+    "metric_mapping.json": "088c8e57aac9e0034eb3a9b29ac498024e99ea22d9fb8e40ac4f75a51fa998c2",
+    "split_manifest.json": "c7a3d4fc9f26bf9ff11a529822b298d41e56945d885c8b04492c177e40f23897",
+    "validation.log": "46d5f163a41eeafd3586e5c3c673024268e4c8174827d94e9acabf9245f249cf"
+  },
+  "evidence_link_sha256": "7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559",
+  "ground_truth_method": "Pre-request operator action ledger matched to event_id; no detector predictions generated",
+  "limitations": [
+    "localhost-only controlled traffic",
+    "single source IP",
+    "sub-second collection window",
+    "30 events",
+    "four of ten canonical metrics"
+  ],
+  "metric_coverage": {
+    "catalog_total": 10,
+    "covered": 4,
+    "metrics": [
+      "auth_failures",
+      "unique_failed_accounts",
+      "unique_source_ips",
+      "successful_logins"
+    ],
+    "ratio": 0.4
+  },
+  "missingness": {
+    "auth_failures": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "successful_logins": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "unique_failed_accounts": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "unique_source_ips": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    }
+  },
+  "note": "checksums.json cannot contain its own digest; evidence_link_sha256 binds it to this dataset revision",
+  "private_inputs": {
+    "features": "66f746c62323ab0d72dad2f5a94273a429c9b475fbd721d87c57693214fdcb0d",
+    "labels": "6f7c0d01a959876858587af7e841924d2246c00a0ec06b9f33000d246ea55ddf",
+    "raw": "bf26d9f51100e2948a55a0cce47e838113403ac1d7c38a1a48a9cb32e81a28a7"
+  },
+  "revision": "1",
+  "source_systems": [
+    "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+  ],
+  "split_ranges": {
+    "baseline": {
+      "end_utc": "2026-09-20T08:27:09.848833Z",
+      "start_utc": "2026-09-20T08:27:09.618604Z"
+    },
+    "blind_test": {
+      "end_utc": "2026-09-20T08:27:10.350814Z",
+      "start_utc": "2026-09-20T08:27:10.131486Z"
+    },
+    "calibration": {
+      "end_utc": "2026-09-20T08:27:10.101279Z",
+      "start_utc": "2026-09-20T08:27:09.879012Z"
+    }
+  },
+  "time_range": {
+    "end_utc": "2026-09-20T08:27:10.330064Z",
+    "start_utc": "2026-09-20T08:27:09.628886Z"
+  }
+}

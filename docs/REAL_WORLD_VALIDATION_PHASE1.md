@@ -99,3 +99,12 @@ python3 scripts/validate_real_world_dataset.py path/to/manifest.json
 - ไม่ถือ test fixture ว่าเป็น real telemetry
 
 ขั้นถัดไปหลัง contract ผ่านคือเลือก/รับ telemetry จริงหรือ controlled telemetry และสร้าง manifest ที่มี hashes จริง จากนั้นจึงตรวจ data quality ก่อนเริ่มส่วนที่ 2
+
+## Admission ที่บันทึกแล้ว
+
+ชุด `controlled_local_auth_20260920` revision 1 เป็นการเก็บ authentication
+telemetry จาก localhost harness จริงในสภาพแวดล้อมควบคุม โดยเก็บ raw/features/
+labels ไว้ใต้ `data/private/` และ commit เฉพาะหลักฐาน aggregate ที่
+`data/evidence/controlled_local_auth_20260920/revision-1/` ผล admission คือ
+**REJECTED** เพราะช่วงเวลาและจำนวน event สั้นมาก, มี source IP เดียว และ coverage
+เพียง 4/10 metrics จึงไม่ได้เริ่ม Phase 2
