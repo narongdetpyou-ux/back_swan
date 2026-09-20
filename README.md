@@ -14,7 +14,7 @@
 | Phase 1 — Dataset Contract | **COMPLETE** — validator, fixtures, tests และ CI ผ่าน |
 | Phase 2 — Experiment & Attack Scenario Contract | **CRITERIA READY / EXECUTION NOT STARTED** |
 | Phase 3 — Blind Real-World Evaluation | **NOT STARTED** |
-| Full repository regression | 85/85 ผ่านบน Phase 1 CI; repository-wide CI ตรวจซ้ำทุก push/PR |
+| Full repository regression | **85/85 ผ่าน** บน repository refresh CI run 35502747378 |
 | Production readiness | **NOT READY** — ยังไม่มี admitted real/controlled telemetry สำหรับ Phase 2 และยังไม่ผ่าน end-to-end production validation |
 
 เอกสารเกณฑ์: [Phase 1](docs/REAL_WORLD_VALIDATION_PHASE1.md) · [Phase 2](docs/REAL_WORLD_VALIDATION_PHASE2.md) · [สถานะโครงการ](PROJECT_STATUS.md)

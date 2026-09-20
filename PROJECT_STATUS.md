@@ -15,7 +15,7 @@
 
 ## หลักฐานที่ยืนยันล่าสุด
 
-- Repository ก่อนรอบ sync นี้มี 101 tracked blobs และ test files 6 ไฟล์
+- Repository refresh CI ตรวจ 102 files โดย errors = 0 และ test files มี 6 ไฟล์
 - พบ 85 test methods: v7 9, v8 24, Colab 25, archive inspection 8, project workflows 13 และ Phase 1 contract 6
 - GitHub Actions run `35483126146` ผ่าน:
   - Phase 1 contract tests 6/6
@@ -24,7 +24,11 @@
   - overlap fixture ถูก reject ตาม contract
   - repository inventory ผ่าน
 - การเพิ่มเอกสาร Phase 2 ที่ commit `4275fe5749f414a5ebf3f058db7e6f6d79d6a7b8` ไม่เปลี่ยน source, runtime, threshold หรือ test code
-- รอบ sync นี้เพิ่ม repository-wide CI เพื่อรัน inventory และ full regression บนทุก push เข้า `main` และทุก pull request
+- Repository refresh commit `5a1fe7d2d8aac93a3fd34e38db8da55b8e2a2387` ผ่าน CI ครบ:
+  - Repository CI run `35502747378`: inventory 102 files, errors 0, regression 85/85, valid fixture ผ่าน และ overlap fixture ถูก reject
+  - Colab validation run `35502747445`: notebook contract 25/25 และ inventory ผ่าน
+  - General archive inspection run `35502747389`: inspector tests 8/8; archive SHA-256 `730472506e90712731589d6633203bd964bdace67d67f26ba5676625b1bc8cb1` ตรงกับ archive ที่เคยตรวจ และ core ไม่ถูก execute
+- repository-wide CI จะรัน inventory และ full regression บนทุก push เข้า `main` และทุก pull request
 
 ## Validation phases
 
