@@ -1,48 +1,111 @@
 # สถานะ Black Swan
 
-อัปเดต: 4 กันยายน 2026 — จัดที่เก็บไฟล์และมาตรฐานการทดลอง (ข้อ 9–11)
+อัปเดต: 20 กันยายน 2026 — repository status, validation phases, CI และงานค้าง
 
-## งานจัดเก็บและบันทึก run ล่าสุด
+## สรุปสถานะ
 
-- คง private repository `back_swan` และ package `black_swan`; mapping อยู่ใน README และ `configs/storage_policy.json`
-- เพิ่ม manifest ต่อ run, ชื่อ UTC ที่ไม่ซ้ำ, การไม่เขียนทับผลเดิม, source/result hashes และบันทึกสถานะเมื่อ exception/timeout
-- tests รวมผ่าน 46/46 (โมเดลเดิม 33 + workflow ใหม่ 13) ใน 7.588 วินาที: `experiments/20260904T154411280065Z_v8_regression_bd35c955/`
-- ประเมิน v8 ซ้ำด้วย `--skip-load`: quality 1,900 แถวตรงผลเดิมทั้งหมด; fault recovery 5/5; workers หลังปิด = 0 ผลอยู่ใน `experiments/20260904T154412792811Z_v8_evaluation_046da720/` โดยบีบอัด JSON แบบ lossless และเก็บ hash ต้นฉบับ/ไฟล์บีบอัดใน `promotion.json`
-- Source engine/runtime ไม่เปลี่ยน; evaluator เปลี่ยนเฉพาะ CLI และ metadata ไม่เปลี่ยนฟังก์ชันประเมินเชิงตัวเลข 7 ฟังก์ชัน
-- Export สร้าง ZIP และ `.sha256`; ตัวตรวจใหม่ตรวจ transport/member hashes และกู้ไปโฟลเดอร์ใหม่โดยไม่เขียนทับ
-- Dropbox เชื่อมแล้ว; รอยืนยันปลายทางและการคัดลอก ยังไม่อ้างว่า backup ภายนอกสำเร็จหรือมี recurring backup
+| ส่วนงาน | สถานะ | หลักฐาน |
+|---|---|---|
+| Repository | Private `narongdetpyou-ux/back_swan`; default branch `main` | GitHub repository metadata |
+| รุ่นหลัก | **Logic v8** ใน `src/black_swan/` | source/runtime และ v8 validation report |
+| Phase 1 — Dataset Contract | **COMPLETE** | commit `69d35a1f6a7e7e6eca6189ede035a0c8f9526428` |
+| Phase 2 — Experiment & Attack Scenario Contract | **CRITERIA READY / EXECUTION NOT STARTED** | `docs/REAL_WORLD_VALIDATION_PHASE2.md` |
+| Phase 3 — Blind Real-World Evaluation | **NOT STARTED** | blind test ยังไม่ถูกเปิด |
+| Production readiness | **NOT READY** | ยังไม่มี admitted real/controlled telemetry และ end-to-end production validation |
 
-รายละเอียด: `docs/DATA_STORAGE.md`, `docs/EXPERIMENTS.md`
+## หลักฐานที่ยืนยันล่าสุด
 
-## รุ่นหลักและหลักฐาน
+- Repository ก่อนรอบ sync นี้มี 101 tracked blobs และ test files 6 ไฟล์
+- พบ 85 test methods: v7 9, v8 24, Colab 25, archive inspection 8, project workflows 13 และ Phase 1 contract 6
+- GitHub Actions run `35483126146` ผ่าน:
+  - Phase 1 contract tests 6/6
+  - full repository regression 85/85 ใน 10.726 วินาที
+  - known-good manifest ผ่าน
+  - overlap fixture ถูก reject ตาม contract
+  - repository inventory ผ่าน
+- การเพิ่มเอกสาร Phase 2 ที่ commit `4275fe5749f414a5ebf3f058db7e6f6d79d6a7b8` ไม่เปลี่ยน source, runtime, threshold หรือ test code
+- รอบ sync นี้เพิ่ม repository-wide CI เพื่อรัน inventory และ full regression บนทุก push เข้า `main` และทุก pull request
 
-- รุ่นหลักคือ **Logic v8** ใน `src/black_swan/`; reference math v7 อยู่ใน `src/black_swan_v7_engine.py`
-- กู้จาก `archive/releases/black_swan_v8_verified_bundle.zip`; source hashes เดิม 4/4 ตรงกับผล `v8-evaluation-1`
-- การจัด package เปลี่ยน import/path และการบันทึกผลเท่านั้น ไม่เปลี่ยนกฎตัดสินใจ threshold labels หรือ assertions ของ tests
-- Baseline GitHub ก่อนจัดโครงสร้าง: `287a269e79364343193bd2c1253883ef32622e89` ซึ่งรวม PR #1 แล้ว
-- ผลเดิม: `experiments/20260904T033307Z_v8_original/results.json`
-- หลักฐานการกู้: `data/manifests/recovered_files.json`
-- ผลทดสอบหลังจัดโครงสร้าง: บันทึกใน `experiments/20260904_repository_recovery_02/` — tests 33/33 ผ่าน; ประเมินใหม่ 1,900 กรณีตรงผลเดิมทุกแถว
-- ทดสอบกู้ snapshot ไปโฟลเดอร์ว่างแล้ว: checksums ตรงทุกไฟล์ และ tests ผ่าน 33/33 โดยไม่พึ่ง user site-packages
+## Validation phases
 
-## ไฟล์ที่กู้และจัดเก็บ
+### Phase 1 — COMPLETE
 
-กู้เนื้อหารายงาน v6/v7, audit v7, stress-test script/CSV และ v8 validation report ที่เคยเป็นไฟล์ว่างบน main; เขียนสถานะโครงการนี้ใหม่จากหลักฐานจริง ย้าย source/tests/benchmarks/config/data/results/reports ออกจาก root และเก็บ ZIP เดิมไว้ตรวจย้อนกลับ
+Phase 1 สร้าง Dataset Admission Contract, manifest validator, chronological split checks, hidden-label separation, privacy checks, fixtures และ CI สำเร็จแล้ว
+
+คำว่า COMPLETE ในที่นี้หมายถึง **contract พร้อมใช้งาน** ไม่ได้หมายความว่ามี dataset จริงที่ผ่าน admission หรือพิสูจน์ accuracy ในโลกจริงแล้ว
+
+### Phase 2 — CRITERIA READY / NOT STARTED
+
+เกณฑ์ G01–G15, Attack Scenario Contract, Protocol Freeze, Evaluation Freeze, Reproducibility Manifest และ Definition of Done ถูกบันทึกแล้วใน `docs/REAL_WORLD_VALIDATION_PHASE2.md`
+
+ยังไม่มีหลักฐานว่า:
+
+- real/controlled telemetry ผ่าน G01–G15
+- Phase 2 protocol ถูก freeze
+- blind test ถูกเปิด
+- Logic v8 ถูกประเมินกับ real-world holdout
+
+### Phase 3 — NOT STARTED
+
+Phase 3 เริ่มได้หลัง Phase 2 ผ่านครบเท่านั้น Blind test ต้องไม่ถูกใช้ปรับ logic, threshold, metric mapping หรือ evaluation protocol
+
+## Pull requests
+
+- PR #7 ปิดเป็น **redundant** วันที่ 20 กันยายน 2026 หลังตรวจว่าไฟล์ที่เปลี่ยนทั้ง 7 รายการมี Git blob SHA ตรงกับ `main` ทุกไฟล์ Phase 1 อยู่บน `main` แล้ว จึงไม่มีเนื้อหาใหม่ให้ merge
+- PR #6 ยังคง **OPEN / BLOCKED — DO NOT MERGE YET**
+  - evidence ระบุ admission decision = `REJECTED`
+  - 30 localhost events, ช่วงเก็บต่ำกว่า 1 วินาที, source IP เดียว และ coverage 4/10 metrics
+  - branch รายงาน full suite 84/85 โดย timing-sensitive runtime test ล้ม 1 รายการ
+  - ยังไม่มี successful status checks บน head commit
+  - หลักฐานนี้มีประโยชน์เป็น rejected admission example แต่ยังไม่ทำให้ Phase 2 เริ่ม
+
+## Security
+
+- `openai-api-key.txt` ถูกนำออกจาก current files ตั้งแต่ PR #1
+- วันที่ 20 กันยายน 2026 มี one-time history rewrite เพื่อลบ path ดังกล่าวออกจากประวัติ `main` ที่เข้าถึงได้
+- GitHub API ตรวจ current tree และ commit query แล้วไม่พบ path
+- **ยังยืนยันไม่ได้ว่า key เดิมถูก revoke/rotate ที่ผู้ให้บริการต้นทาง**
+- สำเนาที่เคย clone/fork/cache ไว้นอก repository ไม่สามารถลบจาก repository นี้ได้
+
+รายละเอียด: `docs/SECURITY_STATUS.md`
+
+## Backup และ reproducibility
+
+- มี snapshot exporter, SHA-256 sidecar และ restore verifier
+- มี run manifests, source/config/artifact hashes และ non-overwriting run directories
+- Slack มี verification/restore manifest ของ snapshot ที่ commit `69d35a1f...` แต่ยังไม่ใช่ raw-byte backup และไม่ครอบคลุม commits หลังจากนั้น
+- จึงยังไม่ถือว่ามี external backup ของ current `main` ที่กู้ไฟล์จริงได้ครบทั้งหมด
+
+รายละเอียด: `docs/DATA_STORAGE.md` และ `docs/EXPERIMENTS.md`
 
 ## ขอบเขตที่ยังไม่ผ่าน
 
-- Prototype นี้ยังไม่ deploy เป็น production service
-- ยังไม่มีผล real cybersecurity traffic replay ที่เหมาะกับ metric contract และ labels อิสระ
-- ผล 10,000–20,000 full decisions/s ยังไม่ผ่าน; ไม่ใช้การจัดไฟล์ครั้งนี้กล่าวอ้างว่าประสิทธิภาพเพิ่มขึ้น
-- Trust registry ใช้ fixture สังเคราะห์ในการประเมิน; ยังต้องเชื่อม verified change records และ authorization จริง
-- ไม่มีหลักฐานยืนยันว่า credential เดิมถูก revoke/rotate; การลบไฟล์ปัจจุบันไม่ลบประวัติ Git
-- มีเครื่องมือ export/verify snapshot; ยังไม่ได้เชื่อมที่เก็บสำรองอัตโนมัตินอก GitHub
+- ยังไม่ deploy เป็น production service
+- ยังไม่มี admitted real cybersecurity telemetry พร้อม labels อิสระสำหรับ Phase 2
+- ยังไม่มี Phase 3 blind real-world evaluation
+- 10,000–20,000 full decisions/s ยังไม่ผ่าน
+- Trust registry ยังไม่ได้เชื่อม verified operational change records จริง
+- ยังไม่มี long-duration production soak, network/storage integration หรือ production SLA
+- uncertainty ของ Logic v8 ไม่ใช่ calibrated probability หรือ OOD detector
+- credential revocation ที่ต้นทางยังไม่ยืนยัน
+- external raw-byte backup ของ current `main` ยังไม่เสร็จ
 
-## งานถัดไป
+## งานถัดไปตามลำดับ
 
-1. ผู้ดูแลตรวจและเพิกถอน credential เดิมถ้ายังมีผลใช้งาน
-2. ระบุ dataset จริงที่มี signals ตรงกับ hourly windows และ labels; แยก calibration/test ตามเวลา
-3. ระบุ raw events/s, entity count, decision cadence และ hardware ก่อนทดสอบโหลดระบบครบเส้นทาง
-4. ลดภาระ review ใน benign concept drift และเพิ่ม coverage ของสัญญาณอ่อน โดยรักษา holdout ที่ไม่ใช้ปรับแต่ง
+1. รักษา PR #6 เป็น blocked จน full regression ผ่านและ evidence/validator ถูก review
+2. จัดหา real หรือ controlled telemetry ที่มี duration, volume, source diversity และ metric coverage เพียงพอ
+3. ทำ Phase 2 ตาม G01–G15 โดยยังไม่เปิด blind test
+4. Freeze logic/config/evaluation protocol ก่อน Phase 3
+5. สร้าง external raw-byte backup ของ current `main` พร้อม checksum และทดสอบ restore
+6. ยืนยัน revoke/rotate credential เดิมที่บัญชีผู้ให้บริการต้นทาง
 
-รายละเอียด contract: `docs/CONTRACT.md`; วิธีจัดเก็บ/สำรอง: `docs/DATA_STORAGE.md`
+## เอกสารหลัก
+
+- `README.md`
+- `docs/CONTRACT.md`
+- `docs/REAL_WORLD_VALIDATION_PHASE1.md`
+- `docs/REAL_WORLD_VALIDATION_PHASE2.md`
+- `reports/v8/v8_validation_report_th.md`
+- `docs/SECURITY_STATUS.md`
+- `docs/DATA_STORAGE.md`
+- `docs/EXPERIMENTS.md`

@@ -1,6 +1,16 @@
 # Real-World Validation Phase 1 — Dataset Contract
 
-สถานะ: **เตรียมโครงสร้างข้อมูลเท่านั้น** ยังไม่ดำเนินการ Attack Plan / ATT&CK scenario design
+สถานะ: **COMPLETE — Dataset Contract implemented and validated**
+
+หลักฐานปิด Phase 1:
+
+- commit `69d35a1f6a7e7e6eca6189ede035a0c8f9526428`
+- contract unit tests 6/6 ผ่าน
+- full repository regression 85/85 ผ่าน
+- GitHub Actions run `35483126146` สำเร็จ
+- known-good fixture ผ่าน และ overlap fixture ถูก reject
+
+คำว่า COMPLETE หมายถึง dataset admission contract พร้อมใช้งานเท่านั้น ยังไม่ดำเนิน Attack Plan / ATT&CK scenario design, ยังไม่มี admitted real-world dataset และยังไม่เริ่ม Phase 2 execution
 
 ## เป้าหมาย
 

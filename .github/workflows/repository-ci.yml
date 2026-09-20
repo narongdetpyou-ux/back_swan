@@ -1,0 +1,42 @@
+name: Repository CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  full-regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Repository inventory and secret heuristic
+        run: python3 scripts/check_repository.py
+      - name: Full repository regression
+        env:
+          PYTHONPATH: src
+          PYTHONNOUSERSITE: "1"
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Validate Phase 1 known-good fixture
+        run: python3 scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_valid.json
+      - name: Confirm Phase 1 overlap fixture is rejected
+        shell: bash
+        run: |
+          if python3 scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_overlap_invalid.json; then
+            echo "invalid overlap fixture unexpectedly passed"
+            exit 1
+          fi

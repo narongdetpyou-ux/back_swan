@@ -2,9 +2,22 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/narongdetpyou-ux/back_swan/blob/main/notebooks/quickstart.ipynb)
 
-**รุ่นหลัก: Logic v8 / สถานะ: research prototype สำหรับคัดกรอง anomaly และช่วยผู้ตรวจตัดสินใจ**
+**รุ่นหลัก: Logic v8 / สถานะ: research prototype สำหรับ anomaly triage และ decision support**
 
 โครงการนี้คำนวณหลักฐานจาก metric windows, ตรวจข้อมูลและ context, ส่ง REVIEW เมื่อข้อมูลไม่พอ และมี runtime แยก process เพื่อควบคุมงานค้าง ไม่ใช่ LLM ที่ฝึกใหม่ และยังไม่ผ่าน production real-data/long-duration load validation
+
+## สถานะปัจจุบัน
+
+| ส่วนงาน | สถานะ |
+|---|---|
+| Logic v8 source/runtime | Canonical research implementation; ยังไม่เปลี่ยน decision logic ในรอบอัปเดตนี้ |
+| Phase 1 — Dataset Contract | **COMPLETE** — validator, fixtures, tests และ CI ผ่าน |
+| Phase 2 — Experiment & Attack Scenario Contract | **CRITERIA READY / EXECUTION NOT STARTED** |
+| Phase 3 — Blind Real-World Evaluation | **NOT STARTED** |
+| Full repository regression | 85/85 ผ่านบน Phase 1 CI; repository-wide CI ตรวจซ้ำทุก push/PR |
+| Production readiness | **NOT READY** — ยังไม่มี admitted real/controlled telemetry สำหรับ Phase 2 และยังไม่ผ่าน end-to-end production validation |
+
+เอกสารเกณฑ์: [Phase 1](docs/REAL_WORLD_VALIDATION_PHASE1.md) · [Phase 2](docs/REAL_WORLD_VALIDATION_PHASE2.md) · [สถานะโครงการ](PROJECT_STATUS.md)
 
 ## Data flow
 
@@ -59,14 +72,14 @@ from black_swan import BlackSwanV8, Calibration, ScenarioInput, IsolatedDecision
 | `src/black_swan/engine.py` | Engine v8 ที่กู้จากชุด verified เดิม; แก้เฉพาะการจัด module/import |
 | `src/black_swan/runtime.py` | Runtime ที่มี queue, watchdog, cancellation และ worker isolation |
 | `src/black_swan_v7_engine.py` | Reference math v7 ที่ v8 ใช้ร่วมกัน; bytes เดิม |
-| `tests/` | Regression v7 9 + v8 24 รายการ, workflow tests และ synthetic fixtures |
+| `tests/` | 85 test methods: v7 9, v8 24, Colab 25, archive 8, workflow 13 และ Phase 1 contract 6 |
 | `benchmarks/` | เครื่องมือประเมินคุณภาพ ความเร็ว และโหลด |
 | `configs/` | Manifest การสอบเทียบเดิม |
 | `data/` | ข้อมูลต้นทางที่กู้ได้, provenance และกติกาการแบ่งชุด |
 | `experiments/` | ผลรันแต่ละชุดที่มีชื่อไม่ซ้ำ |
 | `reports/` | รายงานตรวจสอบและผลแต่ละรุ่น |
 | `archive/releases/` | ZIP เดิมที่เก็บไว้ตรวจย้อนกลับ |
-| `docs/` | Contract, วิธีเก็บข้อมูล, และสถานะ credential |
+| `docs/` | Contract, Phase 1/Phase 2, วิธีเก็บข้อมูล และสถานะ credential |
 | `notebooks/quickstart.ipynb` | Quickstart สำหรับเปิดใน Colab และทดลอง Logic Anomaly Detection |
 
 ## ผลเดิมและข้อจำกัด
@@ -95,4 +108,4 @@ ZIP นี้รวม current files และ checksums; ไม่รวม `.g
 
 ## Credential ที่ต้องติดตาม
 
-PR #1 รวมเข้าสู่ main แล้วและนำไฟล์ key ออกจากไฟล์ปัจจุบัน แต่ยังไม่มีหลักฐานว่า key เดิมถูก revoke/rotate และสำเนาอาจอยู่ในประวัติ Git อ่าน [สถานะและขอบเขตการแก้](docs/SECURITY_STATUS.md) ก่อนสำรองประวัติ Git หรือขยายการเข้าถึง repository
+วันที่ 20 กันยายน 2026 ได้ลบ path ของ key เดิมออกจากประวัติ `main` ด้วย one-time history rewrite และตรวจผ่าน GitHub API ว่าไม่พบ path ดังกล่าวใน current tree หรือ commit query แล้ว อย่างไรก็ตาม repository ไม่สามารถยืนยันการ revoke/rotate ที่บัญชีผู้ให้บริการต้นทาง และไม่สามารถลบสำเนาที่เคย clone/fork/cache ไว้นอก repository ได้ อ่าน [SECURITY_STATUS.md](docs/SECURITY_STATUS.md) ก่อนเปลี่ยน repository เป็น public หรือถือว่า incident ปิดสมบูรณ์

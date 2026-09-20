@@ -2,7 +2,19 @@ name: Colab validation
 
 on:
   push:
-    branches: [codex/colab-verified-runs]
+    branches: [main]
+    paths:
+      - "notebooks/**"
+      - "docs/COLAB_VALIDATION.md"
+      - "tests/test_colab_notebook.py"
+      - ".github/workflows/colab-validation.yml"
+  pull_request:
+    paths:
+      - "notebooks/**"
+      - "docs/COLAB_VALIDATION.md"
+      - "tests/test_colab_notebook.py"
+      - ".github/workflows/colab-validation.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -10,18 +22,15 @@ permissions:
 jobs:
   notebook-contract:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Python version
-        run: python3 --version
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Execute notebook contract tests
         run: python3 -m unittest discover -s tests -p test_colab_notebook.py -v
       - name: Check repository inventory
         run: python3 scripts/check_repository.py
-      - name: Run existing v7, v8, and storage workflow regressions
-        env:
-          PYTHONPATH: src
-        run: python3 -m unittest discover -s tests -p test_*.py -v
