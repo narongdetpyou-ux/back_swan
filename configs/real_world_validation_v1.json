@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "purpose": "Black Swan v8 Real-World Validation Phase 1 dataset contract",
+  "dataset_types": [
+    "real_security_telemetry",
+    "controlled_security_telemetry"
+  ],
+  "timezone": "UTC",
+  "split_policy": {
+    "kind": "chronological",
+    "required_splits": [
+      "baseline",
+      "calibration",
+      "blind_test"
+    ],
+    "overlap_allowed": false,
+    "blind_test_locked": true,
+    "holdout_reuse_for_tuning": false
+  },
+  "canonical_metric_catalog": [
+    "auth_failures",
+    "unique_failed_accounts",
+    "unique_source_ips",
+    "successful_logins",
+    "privileged_changes",
+    "outbound_mb",
+    "api_5xx",
+    "endpoint_alerts",
+    "file_rename_events",
+    "inbound_requests"
+  ],
+  "required_dataset_inputs": [
+    "raw",
+    "features",
+    "labels"
+  ],
+  "ground_truth_policy": {
+    "labels_hidden_from_engine": true,
+    "independent_of_predictions": true,
+    "predictions_must_be_stored_separately": true
+  },
+  "evidence_requirements": [
+    "source path or private URI",
+    "byte size",
+    "SHA-256",
+    "collection start/end UTC",
+    "source system",
+    "provenance",
+    "collection authorization",
+    "transformation identifier for features",
+    "independent adjudication method for labels"
+  ]
+}
