@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Contract unit tests
-        run: python -m unittest tests.test_real_world_dataset_contract -v
+        run: python -m unittest discover -s tests -p 'test_real_world_dataset_contract.py' -v
       - name: Validate known-good fixture
         run: python scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_valid.json
       - name: Confirm overlap fixture is rejected
