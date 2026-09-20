@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "dataset_id": "fixture-controlled-telemetry-001",
+  "dataset_type": "controlled_security_telemetry",
+  "timezone": "UTC",
+  "split_policy": "chronological",
+  "blind_test_locked": true,
+  "labels_hidden_from_engine": true,
+  "splits": {
+    "baseline": {
+      "start_utc": "2026-01-01T00:00:00Z",
+      "end_utc": "2026-01-08T00:00:00Z"
+    },
+    "calibration": {
+      "start_utc": "2026-01-08T00:00:00Z",
+      "end_utc": "2026-01-11T00:00:00Z"
+    },
+    "blind_test": {
+      "start_utc": "2026-01-11T00:00:00Z",
+      "end_utc": "2026-01-15T00:00:00Z"
+    }
+  },
+  "inputs": {
+    "raw": {
+      "dataset_role": "source_evidence",
+      "path_or_uri": "data/private/fixture/raw.jsonl",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "bytes": 100,
+      "source_system": "fixture-source",
+      "collected_start_utc": "2026-01-01T00:00:00Z",
+      "collected_end_utc": "2026-01-15T00:00:00Z",
+      "provenance": "controlled test fixture",
+      "authorization": "test-only"
+    },
+    "features": {
+      "dataset_role": "engine_input",
+      "path_or_uri": "data/private/fixture/features.jsonl",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "bytes": 80,
+      "source_system": "feature-pipeline",
+      "collected_start_utc": "2026-01-01T00:00:00Z",
+      "collected_end_utc": "2026-01-15T00:00:00Z",
+      "provenance": "derived from fixture raw",
+      "authorization": "test-only",
+      "transformation_id": "fixture-transform-v1"
+    },
+    "labels": {
+      "dataset_role": "ground_truth_hidden",
+      "path_or_uri": "data/private/fixture/labels.jsonl",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "bytes": 20,
+      "source_system": "independent-review",
+      "collected_start_utc": "2026-01-01T00:00:00Z",
+      "collected_end_utc": "2026-01-15T00:00:00Z",
+      "provenance": "fixture labels",
+      "authorization": "test-only",
+      "independent_of_predictions": true,
+      "adjudication_method": "fixture independent adjudication"
+    }
+  },
+  "metric_contract": {
+    "selected_metrics": [
+      "auth_failures",
+      "unique_failed_accounts",
+      "outbound_mb"
+    ],
+    "source_mapping": {
+      "auth_failures": "auth.failed.count",
+      "unique_failed_accounts": "auth.failed.unique_accounts",
+      "outbound_mb": "network.outbound_mb"
+    },
+    "decision_cadence_seconds": 3600
+  },
+  "privacy": {
+    "credentials_in_git": false,
+    "direct_identifiers_in_git": false,
+    "pseudonymized_entities": true
+  }
+}

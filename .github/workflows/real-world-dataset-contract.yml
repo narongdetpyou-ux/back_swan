@@ -1,0 +1,43 @@
+name: Real-world dataset contract
+
+on:
+  pull_request:
+    paths:
+      - "configs/real_world_validation_v1.json"
+      - "scripts/validate_real_world_dataset.py"
+      - "tests/test_real_world_dataset_contract.py"
+      - "tests/fixtures/real_world_manifest_*.json"
+      - "docs/REAL_WORLD_VALIDATION_PHASE1.md"
+  push:
+    branches: [main]
+    paths:
+      - "configs/real_world_validation_v1.json"
+      - "scripts/validate_real_world_dataset.py"
+      - "tests/test_real_world_dataset_contract.py"
+      - "tests/fixtures/real_world_manifest_*.json"
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Contract unit tests
+        run: python -m unittest discover -s tests -p 'test_real_world_dataset_contract.py' -v
+      - name: Validate known-good fixture
+        run: python scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_valid.json
+      - name: Repository inventory
+        run: python scripts/check_repository.py
+      - name: Full repository regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Confirm overlap fixture is rejected
+        shell: bash
+        run: |
+          if python scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_overlap_invalid.json; then
+            echo "invalid overlap fixture unexpectedly passed"
+            exit 1
+          fi
