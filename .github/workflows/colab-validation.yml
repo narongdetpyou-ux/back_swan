@@ -1,0 +1,27 @@
+name: Colab validation
+
+on:
+  push:
+    branches: [codex/colab-verified-runs]
+
+permissions:
+  contents: read
+
+jobs:
+  notebook-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Python version
+        run: python3 --version
+      - name: Execute notebook contract tests
+        run: python3 -m unittest discover -s tests -p test_colab_notebook.py -v
+      - name: Check repository inventory
+        run: python3 scripts/check_repository.py
+      - name: Run existing v7, v8, and storage workflow regressions
+        env:
+          PYTHONPATH: src
+        run: python3 -m unittest discover -s tests -p test_*.py -v
