@@ -1,15 +1,36 @@
 # Credential cleanup status
 
-วันที่ตรวจ: 4 กันยายน 2026
+วันที่ตรวจล่าสุด: 20 กันยายน 2026
 
-ไฟล์ `openai-api-key.txt` เคยถูกติดตามใน repository ส่วนตัว PR #1 นำไฟล์ออกและเพิ่ม `.gitignore`; รวมเข้า main แล้วที่ commit `287a269e79364343193bd2c1253883ef32622e89`
+ไฟล์ `openai-api-key.txt` เคยถูกติดตามใน repository ส่วนตัว และถูกนำออกจาก current files ตั้งแต่ PR #1
 
-งานนี้ไม่อ่าน เปิดเผย หรือลองใช้ค่า key เดิม และไม่คัดลอกค่าเข้ารายงาน/ชุดส่งมอบใหม่ การตรวจ current files และ ZIP ใช้ตัวค้นหารูปแบบ credential ที่รายงานเฉพาะชื่อไฟล์ ไม่พิมพ์ค่าที่พบ
+## Git history cleanup
 
-**สถานะ revoke/rotate: ยังไม่ยืนยัน** ไม่มีช่องทางจัดการบัญชีผู้ออก key ที่ใช้ยืนยันการเพิกถอนได้ในงานนี้ ผู้ดูแลต้องตรวจในบัญชีต้นทางและ revoke/rotate key เดิมหากยังใช้งานได้
+วันที่ 20 กันยายน 2026 ได้ทำ one-time history rewrite บน `main` ด้วย `git-filter-repo` โดยลบ path:
 
-การลบไฟล์ปัจจุบันหรือ merge PR ไม่เพิกถอน key และไม่ลบจาก Git history งานนี้ไม่ rewrite/force-push ประวัติ การทำเช่นนั้นมีผลต่อ commit IDs และสำเนาของผู้ร่วมงาน จึงต้องมีแผนที่เจาะจงหลังจัดการ key แล้ว
+- `openai-api-key.txt`
+- workflow ชั่วคราวที่ใช้ทำ history purge
 
-Snapshot exporter ไม่รวม `.git` หรือ credentials และตรวจเนื้อหา ZIP แต่การตรวจด้วย pattern ไม่ใช่การรับรองว่าไม่มี secrets ทุกชนิด
+หลัง force-push ตรวจซ้ำผ่าน GitHub API:
 
-อ้างอิง: [GitHub — Removing sensitive data](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+- current tree: ไม่พบ `openai-api-key.txt`
+- commit query `commits?path=openai-api-key.txt`: คืนค่าเป็นรายการว่าง `[]`
+- one-time purge workflow: ไม่อยู่ใน current tree แล้ว
+
+ผลนี้ยืนยันว่า path ดังกล่าวถูกลบออกจากประวัติ Git ที่เข้าถึงได้จาก `main` ปัจจุบัน อย่างไรก็ตาม สำเนาที่เคย clone/fork/cache ไว้นอก repository ไม่สามารถถูกลบจากที่นี่ได้
+
+## Revoke / rotate status
+
+**ยังไม่สามารถยืนยันการ revoke key เดิมที่บัญชีผู้ออก key ได้จาก repository หรือ GitHub**
+
+การลบ current file และ rewrite Git history ไม่ได้เพิกถอน credential ที่ผู้ให้บริการต้นทาง หาก key เดิมยังมีอยู่ในบัญชีต้นทาง ต้อง revoke ที่ผู้ให้บริการนั้นโดยตรงก่อนเปลี่ยน repository เป็น public หรือถือว่า incident ปิดสมบูรณ์
+
+Black Swan Logic v8 runtime ปัจจุบันไม่ต้องใช้ API key ใน quickstart/runtime หลัก จึงไม่มีเหตุผลให้เพิ่ม key ใหม่เข้า repository
+
+## Prevention
+
+- `.gitignore` ยังคงใช้ป้องกันไฟล์ credential ที่ทราบชื่อ
+- snapshot exporter ไม่รวม `.git`, credentials, private data และ local runs
+- ห้าม commit API keys, tokens หรือ credential files ลง repository แม้ repository จะเป็น private
+
+อ้างอิง: GitHub documentation — Removing sensitive data from a repository
