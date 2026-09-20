@@ -28,6 +28,12 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_real_world_dataset_contract.py' -v
       - name: Validate known-good fixture
         run: python scripts/validate_real_world_dataset.py tests/fixtures/real_world_manifest_valid.json
+      - name: Repository inventory
+        run: python scripts/check_repository.py
+      - name: Full repository regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Confirm overlap fixture is rejected
         shell: bash
         run: |
