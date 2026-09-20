@@ -1,0 +1,58 @@
+{
+  "dataset_id": "controlled_local_auth_20260920",
+  "event_count": 30,
+  "evidence_link_sha256": "7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559",
+  "ground_truth_method": "Pre-request operator action ledger matched to event_id; no detector predictions generated",
+  "integrity": {
+    "label_matches": 30,
+    "unique_event_ids": 30
+  },
+  "limitations": [
+    "localhost-only controlled traffic",
+    "single source IP",
+    "sub-second collection window",
+    "30 events",
+    "four of ten canonical metrics"
+  ],
+  "metric_coverage": {
+    "catalog_total": 10,
+    "covered": 4,
+    "metrics": [
+      "auth_failures",
+      "unique_failed_accounts",
+      "unique_source_ips",
+      "successful_logins"
+    ],
+    "ratio": 0.4
+  },
+  "missingness": {
+    "auth_failures": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "successful_logins": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "unique_failed_accounts": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    },
+    "unique_source_ips": {
+      "missing": 0,
+      "rate": 0.0,
+      "total": 30
+    }
+  },
+  "revision": "1",
+  "source_systems": [
+    "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+  ],
+  "time_range": {
+    "end_utc": "2026-09-20T08:27:10.330064Z",
+    "start_utc": "2026-09-20T08:27:09.628886Z"
+  }
+}

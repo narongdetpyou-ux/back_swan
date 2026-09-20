@@ -1,0 +1,19 @@
+dataset_id=controlled_local_auth_20260920
+revision=1
+evidence_link_sha256=7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559
+source_system=Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)
+time_range=2026-09-20T08:27:09.628886Z/2026-09-20T08:27:10.330064Z
+event_count=30
+metric_coverage=4/10
+missingness=0/30 for each selected metric
+split_ranges={"baseline": {"end_utc": "2026-09-20T08:27:09.848833Z", "start_utc": "2026-09-20T08:27:09.618604Z"}, "blind_test": {"end_utc": "2026-09-20T08:27:10.350814Z", "start_utc": "2026-09-20T08:27:10.131486Z"}, "calibration": {"end_utc": "2026-09-20T08:27:10.101279Z", "start_utc": "2026-09-20T08:27:09.879012Z"}}
+ground_truth_method=pre-request operator action ledger matched by event_id
+limitations=localhost-only; single source IP; sub-second duration; 30 events; four metrics
+SHA-256 PASS dataset_manifest.json 456bd84be7809e9410ffdf22b635ffa16a29243a73b1d9b93c2ae72c8713178e
+SHA-256 PASS data_quality_report.json 7087dc721a15f56cc04da71db9dae6b1d0bf545235612d5df867f899ed0abedd
+SHA-256 PASS metric_mapping.json 088c8e57aac9e0034eb3a9b29ac498024e99ea22d9fb8e40ac4f75a51fa998c2
+SHA-256 PASS split_manifest.json c7a3d4fc9f26bf9ff11a529822b298d41e56945d885c8b04492c177e40f23897
+SHA-256 PASS admission_decision.json 8423b2b3f1f4c3b3d3c0044ab088df171c22b2b0f130076e1e2ed6c6ba77e5f2
+CONTRACT PASS dataset_manifest.json
+ADMISSION REJECTED
+PHASE_2 NOT_STARTED

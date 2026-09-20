@@ -32,7 +32,7 @@
 ## ขอบเขตที่ยังไม่ผ่าน
 
 - Prototype นี้ยังไม่ deploy เป็น production service
-- ยังไม่มีผล real cybersecurity traffic replay ที่เหมาะกับ metric contract และ labels อิสระ
+- มี Phase-1 controlled localhost authentication telemetry revision 1 พร้อม labels อิสระและหลักฐาน aggregate แล้ว แต่ admission เป็น **REJECTED** เพราะ duration/volume/source diversity/metric coverage ไม่เพียงพอ; จึงยังไม่มี real cybersecurity traffic replay ที่เหมาะสำหรับ Phase 2
 - ผล 10,000–20,000 full decisions/s ยังไม่ผ่าน; ไม่ใช้การจัดไฟล์ครั้งนี้กล่าวอ้างว่าประสิทธิภาพเพิ่มขึ้น
 - Trust registry ใช้ fixture สังเคราะห์ในการประเมิน; ยังต้องเชื่อม verified change records และ authorization จริง
 - ไม่มีหลักฐานยืนยันว่า credential เดิมถูก revoke/rotate; การลบไฟล์ปัจจุบันไม่ลบประวัติ Git

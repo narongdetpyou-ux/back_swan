@@ -1,0 +1,41 @@
+{
+  "blind_test_locked": true,
+  "dataset_id": "controlled_local_auth_20260920",
+  "event_count": 30,
+  "evidence_link_sha256": "7cc6b7331bd061c323418290b057e8ac46d54b21eeeba6cd8c23931bfd7ce559",
+  "ground_truth_method": "Pre-request operator action ledger matched to event_id; no detector predictions generated",
+  "limitations": [
+    "localhost-only controlled traffic",
+    "single source IP",
+    "sub-second collection window",
+    "30 events",
+    "four of ten canonical metrics"
+  ],
+  "revision": "1",
+  "source_systems": [
+    "Isolated localhost HTTP authentication harness (Python ThreadingHTTPServer)"
+  ],
+  "split_event_counts": {
+    "baseline": 10,
+    "blind_test": 10,
+    "calibration": 10
+  },
+  "split_ranges": {
+    "baseline": {
+      "end_utc": "2026-09-20T08:27:09.848833Z",
+      "start_utc": "2026-09-20T08:27:09.618604Z"
+    },
+    "blind_test": {
+      "end_utc": "2026-09-20T08:27:10.350814Z",
+      "start_utc": "2026-09-20T08:27:10.131486Z"
+    },
+    "calibration": {
+      "end_utc": "2026-09-20T08:27:10.101279Z",
+      "start_utc": "2026-09-20T08:27:09.879012Z"
+    }
+  },
+  "time_range": {
+    "end_utc": "2026-09-20T08:27:10.330064Z",
+    "start_utc": "2026-09-20T08:27:09.628886Z"
+  }
+}
